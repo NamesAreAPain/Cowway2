@@ -89,7 +89,15 @@ public class Farm{
 		setThing(null, loc0);
 		return true;
 	}
-
+	
+	public boolean moveThing(FarmTile thing, int[] loc){
+		int[] loc0 = getLocation(thing);
+		int[] loc1 = loc;
+		if(!isOpenTile(loc1)) return false;
+		setThing(thing, loc1);
+		setThing(null, loc0);
+		return true;
+	}
 	
 	
 }
