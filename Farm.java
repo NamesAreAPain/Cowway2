@@ -21,10 +21,12 @@ public class Farm{
 	private FarmTile[][] farmmap;
 	private ArrayList<FarmTile> tilelist;
 	private int[] dimensions;
+	private String name;
 	
 	public Farm(int[]size){
 		this.farmmap = new FarmTile[size[0]][size[1]];
 		farmmap.fill(null);
+		this.name = "The " + Phrase.ADJECTIVE.get() + " " + Phrase.NOUN.get(); 
 	}
 	
 	public int howMuchGrass(){
@@ -55,15 +57,28 @@ public class Farm{
 		return farmmap[loc[0]][loc[1]];
 	}
 	
-	public int[] getLocation(FarmTile thing){
-	
-		//this needs to exist
-		
+	public int[] getLocation(FarmTile thing){ //HARDERST PART OF ENTIRE PROJECT, HANDS DOWN. IMPOSSIBLE TO DO WELL, HARD TO DO AT ALL.
+		y = 0;
+		x = 0;
+		for(int i = 0; i < dimensions[0]; i++){
+			if(Arrays.asList(farmmap[i]).contains(thing)){
+				y= i;
+				break;
+			}
+		}
+		x = Arrays.asList(farmmap[y]).indexOf(thing);
+		int[] out = {y,x};
+		return out;
 	}
 	
 	public void setThing(FarmTile thing, int y, int x){
 		farmmap[y][x] = thing;
 	}
+	
+	public void setThing(FarmTile thing, int[] loc){
+		farmmap[loc[0]][loc[1]] = thing;
+	}
+	
 	
 	public boolean isOpenTile(int y, int x){
 		if( (y < dimensions[0]-1) && (x < dimensions[1]-1) && (getTile(y,x).getType().equals("Grass") || getTile(y,x) == null) ){
@@ -84,14 +99,9 @@ public class Farm{
 		int[] loc0 = getLocation(thing);
 		int[] loc1 = direction.go(loc0);
 		if(!isOpenTile(loc1)) return false;
-		
-		
-		
-		
-		
-		
-		
-		
+		setThing(thing, loc1);
+		setThing(null, loc0);
+		return true;
 	}
 
 	
