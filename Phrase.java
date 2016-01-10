@@ -8,7 +8,10 @@ public enum Phrase{
 	ADJECTIVE ("WordList\\adjectives.txt"),
 	NOUN ("WordList\\nouns.txt"),
 	ADVERB ("WordList\\adverbs.txt"),
-	VERB ("WordList\\verbs.txt");
+	VERB ("WordList\\verbs.txt"),
+	MALENAME ("WordList\\namesMale.txt"),
+	FEMALENAME ("WordList\\namesFemale.txt"),
+	NAME("WordList\\names.txt");
 	
 	private File list;
 	private Random rand;
