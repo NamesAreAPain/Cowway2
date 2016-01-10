@@ -12,7 +12,8 @@ public enum Phrase{
 	MALENAME ("WordList\\namesMale.txt"),
 	FEMALENAME ("WordList\\namesFemale.txt"),
 	NAME("WordList\\names.txt"),
-	SURNAME("WordList\\surnames.txt");
+	SURNAME("WordList\\surnames.txt"),
+	LETTER("WordList\\letters.txt");
 	
 	
 	private File list;

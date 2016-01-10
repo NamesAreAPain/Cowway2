@@ -1,6 +1,6 @@
 public class FarmTile{
 	
-	private int[] loc
+	private int[] loc;
 	
 	
 	

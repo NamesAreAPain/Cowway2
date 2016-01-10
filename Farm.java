@@ -12,7 +12,7 @@ public class Farm{
 	public Farm(int[]size) throws FileNotFoundException{
 		this.farmmap = new FarmTile[size[0]][size[1]];
 		Arrays.fill(farmmap, null);
-		this.name = "The " + Phrase.ADJECTIVE.get() + " " + Phrase.NOUN.get(); 
+		this.name = "The " + Phrase.ADJECTIVE.get() + " " + Phrase.LETTER.get() + " " + Phrase.NOUN.get(); 
 	}
 	
 	public int howMuchGrass(){
