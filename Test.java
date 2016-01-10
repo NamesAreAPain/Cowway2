@@ -5,6 +5,6 @@ import java.io.*;
 public class Test{
 	
 	public static void main(String[] args) throws FileNotFoundException {
-		System.out.println("The " + Phrase.ADVERB.get() + " " + Phrase.VERB.get() + " " + Phrase.ADJECTIVE.get() + " " + Phrase.NOUN.get());
+		System.out.println(Phrase.ADJECTIVE.get() + " " + Phrase.NAME.get().toLowerCase() + Phrase.NOUN.get(" \" the ", 0.33, "\"") + Phrase.ADJECTIVE.get(" the ", 0.33,""));
 	}
 }

@@ -25,9 +25,9 @@ public enum Phrase{
 		return nthString(random(rand,0,wordCount(list)),list);
 	}
 	
-	public String get(String imp, double chance, Random rand) throws FileNotFoundException{
+	public String get(String imp, double chance,String end) throws FileNotFoundException{
 		if(rand.nextFloat() < chance){
-			imp = imp + nthString(random(rand,0,wordCount(list)),list);
+			imp = imp + nthString(random(rand,0,wordCount(list)),list) + end;
 			return imp;
 		}
 		return "";	
