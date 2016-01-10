@@ -7,6 +7,10 @@ public class Grass extends FarmTile {
 	}
 
 	public void doStuffEveryHour(int hour) {
-		
+		increaseStuff();
+	}
+
+	public int returnAmount() {
+		return quantity;
 	}
 }
