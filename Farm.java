@@ -15,6 +15,10 @@ public class Farm{
 		this.name = "The " + Phrase.ADJECTIVE.get() + " " + Phrase.LETTER.get() + " " + Phrase.NOUN.get(); 
 	}
 	
+	public String getName(){
+		return name;
+	}
+	
 	public int howMuchGrass(){
 		int grass = 0;
 		for(FarmTile y : tilelist){

@@ -30,17 +30,29 @@ public class GraphicsTest{
 		csi.print(0,0, "Welcome to " + theWorld.getName(), CSIColor.GREEN);
 		csi.refresh();
 		
-		CharKey Kimp = null;
-		do {
-			Kimp = csi.inkey();
-		} while (Kimp.code != CharKey.ENTER);
+		waitForEnter(csi);
 		
 		csi.print(0,1, "A " + Phrase.ADJECTIVE.get() + " land, guided  by Jamie and (somewhat) Adam",CSIColor.CYAN);
 		csi.refresh();
+		
+		csi.print(0,2, "Home to the " + Phrase.ADJECTIVE.get() + " Farms of ", CSIColor.WHITE);
+		for(int i = 0; i < theWorld.getFarms().length; i++){
+			csi.print(3,3+i, theWorld.getFarms()[i].getName(),CSIColor.WHITE);
+			csi.refresh();
+		}
+		
 		
 		
 
 		
 	}
+	
+	public static void waitForEnter(ConsoleSystemInterface csi){
+		CharKey Kimp = null;
+		do {
+			Kimp = csi.inkey();
+		} while (Kimp.code != CharKey.ENTER);
+	}
+	
 	
 }

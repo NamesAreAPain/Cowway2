@@ -3,7 +3,9 @@ import java.util.*;
 import java.io.*;
 
 
-public enum Phrase{
+
+public enum Phrase {
+	
 	
 	ADJECTIVE ("WordList\\adjectives.txt"),
 	NOUN ("WordList\\nouns.txt"),
@@ -11,26 +13,33 @@ public enum Phrase{
 	VERB ("WordList\\verbs.txt"),
 	MALENAME ("WordList\\namesMale.txt"),
 	FEMALENAME ("WordList\\namesFemale.txt"),
-	NAME("WordList\\names.txt"),
-	SURNAME("WordList\\surnames.txt"),
-	LETTER("WordList\\letters.txt");
+	NAME ("WordList\\names.txt"),
+	SURNAME ("WordList\\surnames.txt"),
+	LETTER ("WordList\\letters.txt");
+	
 	
 	
 	private File list;
 	private Random rand;
+	private int num;
 	
-	Phrase(String fpath){
+	Phrase(String fpath) {
 		this.list = new File(fpath);
 		this.rand = new Random();
+		try {
+			this.num = wordCount(list);
+		} catch(FileNotFoundException f){
+			System.out.print("");
+		}
 	}
 	
 	public String get() throws FileNotFoundException{
-		return nthString(random(rand,0,wordCount(list)),list);
+		return nthString(random(rand,0,num),list);
 	}
 	
 	public String get(String imp, double chance,String end) throws FileNotFoundException{
 		if(rand.nextFloat() < chance){
-			imp = imp + nthString(random(rand,0,wordCount(list)),list) + end;
+			imp = imp + nthString(random(rand,0,num),list) + end;
 			return imp;
 		}
 		return "";	
