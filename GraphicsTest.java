@@ -1,6 +1,7 @@
 import net.slashie.libjcsi.wswing.WSwingConsoleInterface;
 import net.slashie.libjcsi.ConsoleSystemInterface;
 import net.slashie.libjcsi.CSIColor;
+import net.slashie.libjcsi.CharKey;
 import java.util.Properties;
 import java.util.Scanner; 
 import java.util.*; 
@@ -26,12 +27,18 @@ public class GraphicsTest{
 		
 		World theWorld = new World(5,4,10);
 		
-		
-		
-		
 		csi.print(0,0, "Welcome to " + theWorld.getName(), CSIColor.GREEN);
 		csi.refresh();
-
+		
+		CharKey Kimp = null;
+		do {
+			Kimp = csi.inkey();
+		} while (Kimp.code != CharKey.ENTER);
+		
+		csi.print(0,1, "A " + Phrase.ADJECTIVE.get() + " land, guided  by Jamie and (somewhat) Adam",CSIColor.CYAN);
+		csi.refresh();
+		
+		
 
 		
 	}
