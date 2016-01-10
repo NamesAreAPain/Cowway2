@@ -25,6 +25,15 @@ public enum Phrase{
 		return nthString(random(rand,0,wordCount(list)),list);
 	}
 	
+	public String get(String imp, double chance, Random rand) throws FileNotFoundException{
+		if(rand.nextFloat() < chance){
+			imp = imp + nthString(random(rand,0,wordCount(list)),list);
+			return imp;
+		}
+		return "";	
+	}
+	
+	
 	public String nthString(int n, File f) throws FileNotFoundException{
 		Scanner console = new Scanner(f);
 		for(int i = 0; i < n; i++ ){
