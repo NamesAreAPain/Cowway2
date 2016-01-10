@@ -35,9 +35,11 @@ public class Cowway{
 		csi.print(0,1, "A " + Phrase.ADJECTIVE.get() + " land, guided  by Jamie and (somewhat) Adam",CSIColor.CYAN);
 		csi.refresh();
 		
+		waitForEnter(csi);
+		
 		csi.print(0,2, "Home to the " + Phrase.ADJECTIVE.get() + " Farms of ", CSIColor.WHITE);
 		for(int i = 0; i < theWorld.getFarms().length; i++){
-			csi.print(3,3+i, theWorld.getFarms()[i].getName(),CSIColor.WHITE);
+			csi.print(3,3+i, theWorld.getFarms()[i].getName() + farmInfo(theWorld.getFarms()[i]) ,CSIColor.WHITE);
 			csi.refresh();
 		}
 		
@@ -46,6 +48,12 @@ public class Cowway{
 
 		
 	}
+	
+	public static String farmInfo(Farm farm){
+		String out = "(Home to " + farm.howManyCows() + " Cows)";
+		return out;
+	}
+	
 	
 	public static void waitForEnter(ConsoleSystemInterface csi){
 		CharKey Kimp = null;
