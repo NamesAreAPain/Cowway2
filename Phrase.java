@@ -11,7 +11,9 @@ public enum Phrase{
 	VERB ("WordList\\verbs.txt"),
 	MALENAME ("WordList\\namesMale.txt"),
 	FEMALENAME ("WordList\\namesFemale.txt"),
-	NAME("WordList\\names.txt");
+	NAME("WordList\\names.txt"),
+	SURNAME("WordList\\surnames.txt");
+	
 	
 	private File list;
 	private Random rand;
