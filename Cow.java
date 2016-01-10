@@ -24,8 +24,8 @@ public class Cow extends FarmTile {
 				//west
 				direct1 = WEST;
 			}
-			if (direct1.go(loc).getThing().getType().equals("Grass")){
-
+			if (direct1.go(loc).getThing().getType().equals("Grass")) {
+				direct1.go(loc).getThing().returnAmount();
 			}
 		}
 	}
@@ -40,6 +40,6 @@ public class Cow extends FarmTile {
 	}
 
 	public int returnAmount() {
-		return -200;
+		return -1;
 	}
 }
