@@ -1,4 +1,4 @@
-public enum Dir{
+public enum Dir {
 	NORTH (-1,0), SOUTH (1,0), EAST (0,1), WEST (-1,0);
 	
 	private final int deltaY;

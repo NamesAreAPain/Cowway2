@@ -102,6 +102,4 @@ public class Farm{
 		setThing(null, loc0);
 		return true;
 	}
-	
-	
 }
