@@ -31,10 +31,14 @@ public class Farm{
 	
 	public int howManyCows(){
 		int cows = 0;
+		try {
 		for(FarmTile y : tilelist){
 			if(y.getType().equals("Cow")){
 				cows++;
 			}
+		}
+		} catch (NullPointerException e) {
+			
 		}
 		return cows;
 	}
