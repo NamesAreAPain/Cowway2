@@ -8,7 +8,7 @@ import java.util.*;
 import java.io.*;
 
 
-public class GraphicsTest{
+public class Cowway{
 	
 	public static void main(String[] args) throws FileNotFoundException {
 		Properties text = new Properties();
