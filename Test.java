@@ -5,6 +5,7 @@ import java.io.*;
 public class Test{
 	
 	public static void main(String[] args) throws FileNotFoundException {
-		System.out.println("The " + Phrase.ADJECTIVE.get() + " " + Phrase.LETTER.get() + " Ranch" );
+		for(int i = 0; i < 20; i++)
+		System.out.println(Phrase.TITLE.get() + " " + Phrase.NAME.get() + " " + Phrase.SURNAME.get() + " the " + Phrase.ADJECTIVE.get() );
 	}
 }

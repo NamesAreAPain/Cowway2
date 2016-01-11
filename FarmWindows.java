@@ -44,12 +44,13 @@ public class FarmWindows{
 						
 						switch(farm.getMap()[j][i].getTType()){
 							case COW : theC= CSIColor.BROWN; theF = "\u263A"; break;
-							case default :
 							case DIRT : theC = CSIColor.BROWN; theF = "\u2588"; break;
 							case GRASS : theC = CSIColor.GREEN; theF = "\u2588"; break;
 							case POISONGRASS : theC = CSIColor.PURPLE; theF = "\u2588"; break;
 							case FLYINGCOW : theC = CSIColor.CYAN; theF = "\u263A"; break;
 							case NOCTURNALCOW : theC = CSIColor.GRAY; theF = "\u263A"; break;
+							case COW : 
+							default : theC= CSIColor.BROWN; theF = "\u263A"; break;
 						}
 						
 						csi.print(i + 3, j + 3, theF, theC );
