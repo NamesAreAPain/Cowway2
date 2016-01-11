@@ -32,7 +32,7 @@ public class Cowway{
 		
 		waitForEnter(csi);
 		
-		csi.print(0,1, "A " + Phrase.ADJECTIVE.get() + " land, guided  by Jamie and (somewhat) Adam",CSIColor.CYAN);
+		csi.print(0,1, "A " + Phrase.ADJECTIVE.get() + " land, guided  by Adam and (somewhat) Jamie",CSIColor.CYAN);
 		csi.refresh();
 		
 		waitForEnter(csi);
