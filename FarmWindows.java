@@ -7,6 +7,7 @@ import java.util.Scanner;
 import java.util.*; 
 import java.io.*;
 
+
 public class FarmWindows{
 	
 	private Farm farm;
@@ -35,6 +36,11 @@ public class FarmWindows{
 		while(true){
 			if(tempTime != farm.getWorld().whatTimeIsIt()){
 				
+				for(int i = 0; i < farm.getDimensions()[1];i++){
+					for(int j = 0; j < farm.getDimensions()[0];j++){
+						
+					}
+				}
 				
 				
 				
@@ -42,4 +48,6 @@ public class FarmWindows{
 		}
 		
 	}
+	
+	
 }
