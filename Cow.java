@@ -6,7 +6,7 @@ public class Cow extends FarmTile {
 	private int sicknessLevel;
 
 	public Cow() {
-		this.name = Phrase.NAME.get() + "the Cow";
+		this.name = Phrase.ADJECTIVE.get() + Phrase.NAME.get() + "the Cow";
 	}
 	
 	public void doStuffForAnHour(int hour) throws FileNotFoundException {
