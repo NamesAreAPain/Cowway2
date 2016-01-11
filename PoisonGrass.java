@@ -1,3 +1,7 @@
+import java.util.Scanner; 
+import java.util.*; 
+import java.io.*;
+
 public class PoisonGrass extends Grass {
 
 	public PoisonGrass(Farm farm, Tile ttype) {
@@ -8,6 +12,6 @@ public class PoisonGrass extends Grass {
 
 	public void increaseThings() {
 		this.amount += 2;
-		this.sickness = this.quantity;
+		this.sickness = this.amount;
 	}
 }

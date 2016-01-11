@@ -14,7 +14,7 @@ public class Grass extends FarmTile {
 	}
 	
 	public void increaseThings() {//increases things every hour
-		this.quantity++;
+		this.amount++;
 		this.sickness = 0;
 	}
 
@@ -23,6 +23,6 @@ public class Grass extends FarmTile {
 	}
 
 	public int returnSickness() {
-		returnSickness;
+		return sickness;
 	}
 }

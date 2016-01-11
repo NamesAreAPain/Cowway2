@@ -20,7 +20,7 @@ public class FlyingCow extends Cow {
 		increaseThings();
 		
 		dimensions = farm.getDimensions();
-		int[] loc1 = {random(rand, 0, dimensions[0]), random(rand, 0, dimensions[1])}
+		int[] loc1 = {random(rand, 0, dimensions[0]), random(rand, 0, dimensions[1])};
 
 
 
