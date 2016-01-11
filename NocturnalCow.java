@@ -4,7 +4,7 @@ import java.io.*;
 
 public class NocturnalCow extends Cow {
 
-	public NocturnalCow(Farm farm, Tile ttype) {
+	public NocturnalCow(Farm farm, Tile ttype) {//constructor with same arguments as super
 		super(farm, ttype);
 		try {
 			this.name = Phrase.ADJECTIVE.get() + Phrase.NAME.get() + "the Nocturnal Cow";
@@ -16,24 +16,18 @@ public class NocturnalCow extends Cow {
 		return(num1 -1 + (int)Math.ceil(rand.nextDouble()*(num2-num1+1)));
 	}
 
-	public void doStuffForAnHour(int hour) {
+	public void doStuffForAnHour(int hour) {//what the cow does every hour
 		increaseThings();
 		Random rand = new Random();
 		if (hour < 6 || hour > 18) {
 			int direct = random(rand, 1, 4);
 			Dir direct1 = null;
-			if (direct == 1) {
-				//north
-				direct1 = Dir.NORTH;
-			} else if (direct == 2) {
-				//east
-				direct1 = Dir.EAST;
-			} else if (direct == 3) {
-				//south
-				direct1 = Dir.SOUTH;
-			} else if (direct == 4) {
-				//west
-				direct1 = Dir.WEST;
+			switch(direct) {
+				case 2: direct1 = Dir.EAST;//cow go east
+				case 3: direct1 = Dir.SOUTH;//cow go south
+				case 4: direct1 = Dir. WEST;//cow go west
+				case 1:
+				default: direct1 = Dir.NORTH;//cow go north
 			}
 
 			if (farm.getThing(direct1.go(getLoc())).getTType().equals(Tile.GRASS)) {

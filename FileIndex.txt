@@ -1,6 +1,7 @@
 C:\Users\Adam\Documents\GitHub\Cowway2\Cow.java
 C:\Users\Adam\Documents\GitHub\Cowway2\Cowway.java
 C:\Users\Adam\Documents\GitHub\Cowway2\Dir.java
+C:\Users\Adam\Documents\GitHub\Cowway2\Dirt.java
 C:\Users\Adam\Documents\GitHub\Cowway2\Farm.java
 C:\Users\Adam\Documents\GitHub\Cowway2\FarmTile.java
 C:\Users\Adam\Documents\GitHub\Cowway2\FarmWindows.java

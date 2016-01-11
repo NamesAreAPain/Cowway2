@@ -6,7 +6,7 @@ public class FlyingCow extends Cow {
 
 	private int[] dimensions;
 
-	public FlyingCow(Farm farm, Tile ttype) {
+	public FlyingCow(Farm farm, Tile ttype) {//constructor with same arguments as super
 		super(farm, ttype);
 		try {
 			this.name = Phrase.ADJECTIVE.get() + Phrase.NAME.get() + "the Flying Cow";
@@ -18,7 +18,7 @@ public class FlyingCow extends Cow {
 		return(num1 -1 + (int)Math.ceil(rand.nextDouble()*(num2-num1+1)));
 	}
 
-	public void doStuffForAnHour(int hour) {
+	public void doStuffForAnHour(int hour) {//what the cow does every hour
 		increaseThings();
 		this.dimensions = farm.getDimensions();
 		Random rand = new Random();
