@@ -14,10 +14,7 @@ public class Farm{ //farm has an array of FarmTiles
 	public Farm(int[]size,World world) throws FileNotFoundException{
 		this.farmmap = new FarmTile[size[0]][size[1]]; //founds the farm
 		this.name = "The " + Phrase.ADJECTIVE.get() + " " + Phrase.LETTER.get() + " " + Phrase.NOUN.get(); //names the farm using Phrase
-		this.dimensions = size; //sets dimensions;
-		
-		//bughunting
-		System.out.println(Arrays.toString(dimensions));
+		this.dimensions = size; //sets dimensions
 		
 		this.tilelist = new ArrayList<FarmTile>(); //starts the list
 		for(int i = 0; i < dimensions[0]; i++){ //all tiles 
@@ -133,17 +130,19 @@ public class Farm{ //farm has an array of FarmTiles
 	
 	
 	public boolean isOpenTile(int y, int x){ //is the tile available to be moved to by a cow?
-		if( (y < dimensions[0]-1) && (x < dimensions[1]-1) && (getThing(y,x).getTType() == Tile.GRASS || getThing(y,x).getTType() == Tile.DIRT || getThing(y,x).getTType() == Tile.POISONGRASS) ){
-			return true;
-		}
-		return false;
+		int[] loc = {y,x};
+		return (isOpenTile(loc));
 	}
 	
 	public boolean isOpenTile(int[] loc){ //same thing
-		if( (loc[0] < dimensions[0]-1) && (loc[1] < dimensions[1]-1) && (getThing(loc).getTType() == Tile.GRASS || getThing(loc).getTType() == Tile.DIRT || getThing(loc).getTType() == Tile.POISONGRASS) ){
-			return true;
+		
+		System.out.println(Arrays.toString(loc) + Arrays.toString(this.dimensions));
+		
+		if( (loc[0] > this.dimensions[0]-1 || loc[1] > this.dimensions[1]-1) || ((loc[0] < 0 || (loc[1] < 0) )) || (getThing(loc).getTType() != Tile.GRASS && getThing(loc).getTType() != Tile.DIRT && getThing(loc).getTType() != Tile.POISONGRASS) ){
+			return false;
 		}
-		return false;
+		
+		return true;
 	}
 	
 	

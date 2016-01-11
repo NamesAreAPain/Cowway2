@@ -11,6 +11,7 @@ public class Cow extends FarmTile {
 
 	public Cow(Farm farm, Tile ttype) {//Constructor with same arguments as super
 		super(farm, ttype);
+		this.farm = farm;
 		try{
 			this.name = Phrase.TITLE.get() + Phrase.NAME.get() + "the " + Phrase.ADJECTIVE.get() + " Cow";//Proper nameology
 		} catch(FileNotFoundException e) {}
@@ -26,7 +27,7 @@ public class Cow extends FarmTile {
 		Random rand = new Random();
 		if (hour < 19 || hour > 5) {
 			int direct = random(rand, 1, 4);
-			Dir direct1 = null;
+			Dir direct1 = Dir.NORTH;
 			switch(direct) {//chooses the direction based off of a random number
 				case 2: direct1 = Dir.EAST;
 				case 3: direct1 = Dir.SOUTH;
@@ -34,12 +35,27 @@ public class Cow extends FarmTile {
 				case 1:
 				default: direct1 = Dir.NORTH;
 			}
-
-			if (farm.getTileTypeAt(direct1.go(getLoc())) == Tile.GRASS) {//if the tile the cow moves to is grass
-				this.hunger -= farm.getThing(direct1.go(getLoc())).returnAmount();
-				this.sicknessLevel += farm.getThing(direct1.go(getLoc())).getSickness();
+			
+			int[] hurdur = {2,2};
+			
+			System.out.println(farm.getTileTypeAt(hurdur));
+			
+			//never gets to execute farm.getTileTypeAt()
+			//This line is currently broken. it's not the location
+			//its not direct1.go()
+			//getTileTypeAt is returning null;
+			
+			
+			
+			if(farm.isOpenTile(direct1.go(this.getLoc()))){
+				if (farm.getTileTypeAt(direct1.go(this.getLoc())) == Tile.GRASS) {
+					this.hunger -= farm.getThing(direct1.go(getLoc())).returnAmount();
+					this.sicknessLevel += farm.getThing(direct1.go(getLoc())).getSickness();
+					farm.moveThing(this, direct1);
+				} else {
+				farm.moveThing(this, direct1);
 			}
-			farm.moveThing(this, direct1);//move the cow
+			}
 
 			int randInt = random(rand, 1, 100);
 			int sick = (int) (0.000001*age*sicknessLevel);
