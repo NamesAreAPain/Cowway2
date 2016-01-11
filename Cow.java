@@ -11,7 +11,9 @@ public class Cow extends FarmTile {
 
 	public Cow(Farm farm, Tile ttype) {
 		super(farm, ttype);
-		this.name = Phrase.ADJECTIVE.get() + Phrase.NAME.get() + "the Cow";
+		try{
+			this.name = Phrase.ADJECTIVE.get() + Phrase.NAME.get() + "the Cow";
+		} catch(FileNotFoundException e) {}
 		this.ttype = Tile.COW;
 	}
 

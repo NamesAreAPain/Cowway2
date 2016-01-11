@@ -8,7 +8,9 @@ public class FlyingCow extends Cow {
 
 	public FlyingCow(Farm farm, Tile ttype) {
 		super(farm, ttype);
-		this.name = Phrase.ADJECTIVE.get() + Phrase.NAME.get() + "the Flying Cow";
+		try {
+			this.name = Phrase.ADJECTIVE.get() + Phrase.NAME.get() + "the Flying Cow";
+		} catch(FileNotFoundException e) {}
 		this.ttype = Tile.FLYINGCOW;
 	}
 
