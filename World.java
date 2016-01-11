@@ -43,6 +43,10 @@ public class World{
 		return time;
 	}
 	
+	public int whatTimeOfDay(){
+		return timeOfDay;
+	}
+	
 	public Farm getFarm(int which){
 		if(which < 0 || which >= farms.length){
 			return null;

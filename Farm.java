@@ -25,7 +25,7 @@ public class Farm{
 	public int[] getDimensions() {
 		return dimensions;
 	}
-
+	
 	public void tick(){
 		for(FarmTile x: tilelist){
 			x.doStuffForAnHour(world.whatTimeOfDay());
@@ -158,6 +158,10 @@ public class Farm{
 	public void rapture(FarmTile thing){
 		setThing(null, getLocation(thing) );
 		tilelist.remove(thing);
+	}
+	
+	public int random(Random rand,int num1,int num2){  //returns a random value between num1 and num2 (inclusive)
+		return(num1 -1 + (int)Math.ceil(rand.nextDouble()*(num2-num1+1)));
 	}
 	
 	public World getWorld(){
