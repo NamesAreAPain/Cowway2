@@ -47,9 +47,9 @@ public class Farm{
 		switch(i){
 			case 1 :
 			case 2 :
-			case 3 : return(new Cow(this,"Cow"));
-			case 4 : return(new FlyingCow(this,"Cow"));
-			case 5 : return(new NocturnalCow(this,"Cow"));
+			case 3 : return(new Cow(this,Tile.COW));
+			case 4 : return(new FlyingCow(this,Tile.FLYINGCOW));
+			case 5 : return(new NocturnalCow(this,Tile.NOCTURNALCOW));
 			case 6 :
 			case 7 :
 			case 8 :
@@ -58,8 +58,8 @@ public class Farm{
 			case 13:
 			case 14:
 			case 15:
-			case 9 : return(new Grass(this,"Grass"));
-			case 10: return(new PoisonGrass(this,"Grass"));
+			case 9 : return(new Grass(this,Tile.GRASS));
+			case 10: return(new PoisonGrass(this,Tile.POISONGRASS));
 		}
 	}
 	
