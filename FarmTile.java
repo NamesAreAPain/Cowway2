@@ -15,9 +15,11 @@ public class FarmTile {
 		this.farm = farm;
 		this.amount = -1;
 		this.ttype = Tile.DIRT;
+		this.loc = farm.getLocation(this);
 	}
 
 	public int[] getLoc() {
+		this.loc = farm.getLocation(this);
 		return loc;
 	}
 	

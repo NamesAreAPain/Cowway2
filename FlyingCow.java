@@ -20,7 +20,6 @@ public class FlyingCow extends Cow {
 
 	public void doStuffForAnHour(int hour) {
 		increaseThings();
-	
 		this.dimensions = farm.getDimensions();
 		Random rand = new Random();
 		int[] loc1 = {random(rand, 0, dimensions[0]), random(rand, 0, dimensions[1])};

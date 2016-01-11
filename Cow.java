@@ -40,7 +40,9 @@ public class Cow extends FarmTile {
 				//west
 				direct1 = Dir.WEST;
 			}
-			if (farm.getThing(direct1.go(getLoc())).getType().equals("Grass")) {
+			else { direct1 = Dir.NORTH;}
+
+			if (getTileType(farm.getThing(direct1.go(getLoc()))).equals(Tile.GRASS)) {
 				this.hunger -= farm.getThing(direct1.go(getLoc())).returnAmount();
 				this.sicknessLevel += farm.getThing(direct1.go(getLoc())).getSickness();
 			}
@@ -70,5 +72,10 @@ public class Cow extends FarmTile {
 
 	public int returnAmount() {
 		return amount;
+	}
+
+	public Tile getTileType(FarmTile aa){
+		if( aa == null) return Tile.DIRT;
+		return aa.getTType();
 	}
 }

@@ -1,3 +1,7 @@
+import java.util.Scanner; 
+import java.util.*; 
+import java.io.*;
+
 public enum Dir {
 	NORTH (-1,0), SOUTH (1,0), EAST (0,1), WEST (-1,0);
 	

@@ -15,6 +15,7 @@ public class Farm{
 		this.farmmap = new FarmTile[size[0]][size[1]];
 		this.name = "The " + Phrase.ADJECTIVE.get() + " " + Phrase.LETTER.get() + " " + Phrase.NOUN.get(); 
 		this.dimensions = size;
+		System.out.println(Arrays.toString(dimensions));
 		this.tilelist = new ArrayList<FarmTile>();
 		for(int i = 0; i < dimensions[0]; i++){
 			for(int j = 0; j < dimensions[1]; j++){
@@ -31,7 +32,7 @@ public class Farm{
 		return farmmap;
 	}
 	public int[] getDimensions() {
-		return dimensions;
+		return this.dimensions;
 	}
 	
 	public void tick(){
@@ -64,7 +65,7 @@ public class Farm{
 			case 9 : return(new Grass(this,Tile.GRASS));
 			case 10: return(new PoisonGrass(this,Tile.POISONGRASS));
 		} 
-		return(new Grass(this,Tile.GRASS));
+		return(new Dirt(this,Tile.DIRT));
 	}
 	
 	public String getName(){
@@ -127,14 +128,14 @@ public class Farm{
 	
 	
 	public boolean isOpenTile(int y, int x){
-		if( (y < dimensions[0]-1) && (x < dimensions[1]-1) && (getThing(y,x).getTType() == Tile.GRASS || getThing(y,x) == null || getThing(y,x).getTType() == Tile.POISONGRASS) ){
+		if( (y < dimensions[0]-1) && (x < dimensions[1]-1) && (getThing(y,x).getTType() == Tile.GRASS || getThing(y,x).getTType() == Tile.DIRT || getThing(y,x).getTType() == Tile.POISONGRASS) ){
 			return true;
 		}
 		return false;
 	}
 	
 	public boolean isOpenTile(int[] loc){
-		if( (loc[0] < dimensions[0]-1) && (loc[1] < dimensions[1]-1) && (getThing(loc).getTType() == Tile.GRASS || getThing(loc) == null || getThing(loc).getTType() == Tile.POISONGRASS) ){
+		if( (loc[0] < dimensions[0]-1) && (loc[1] < dimensions[1]-1) && (getThing(loc).getTType() == Tile.GRASS || getThing(loc).getTType() == Tile.DIRT || getThing(loc).getTType() == Tile.POISONGRASS) ){
 			return true;
 		}
 		return false;
@@ -146,7 +147,7 @@ public class Farm{
 		int[] loc1 = direction.go(loc0);
 		if(!isOpenTile(loc1)) return false;
 		setThing(thing, loc1);
-		setThing(null, loc0);
+		setThing(new Dirt(this,Tile.DIRT), loc0);
 		return true;
 	}
 	
@@ -155,12 +156,12 @@ public class Farm{
 		int[] loc1 = loc;
 		if(!isOpenTile(loc1)) return false;
 		setThing(thing, loc1);
-		setThing(null, loc0);
+		setThing(new Dirt(this,Tile.DIRT), loc0);
 		return true;
 	}
 	
 	public void rapture(FarmTile thing){
-		setThing(null, getLocation(thing) );
+		setThing(new Dirt(this,Tile.DIRT), this.getLocation(thing));
 		tilelist.remove(thing);
 	}
 	
