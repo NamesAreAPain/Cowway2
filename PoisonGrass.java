@@ -12,6 +12,6 @@ public class PoisonGrass extends Grass {
 
 	public void increaseThings() {
 		this.amount += 2;
-		this.sickness = this.amount;
+		this.sicknessLevel = this.amount;
 	}
 }

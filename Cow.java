@@ -7,7 +7,6 @@ public class Cow extends FarmTile {
 	String name;
 	int hunger;
 	int age;
-	int sicknessLevel;
 	Farm farm;
 
 	public Cow(Farm farm, Tile ttype) throws FileNotFoundException {
@@ -42,10 +41,8 @@ public class Cow extends FarmTile {
 			if (farm.getThing(direct1.go(getLoc())).getType().equals("Grass")) {
 				this.hunger -= farm.getThing(direct1.go(getLoc())).returnAmount();
 				this.sicknessLevel += farm.getThing(direct1.go(getLoc())).getSickness();
-				farm.moveThing(this, direct1);
-			} else {
-				farm.moveThing(this, direct1);
 			}
+			farm.moveThing(this, direct1);
 
 			int randInt = random(rand, 1, 100);
 			int sick = (int) (0.000001*age*sicknessLevel);
