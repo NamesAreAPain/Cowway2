@@ -4,9 +4,9 @@ import java.io.*;
 
 
 
-public enum Phrase {
+public enum Phrase { //allows for the easy generation of names
 	
-	
+	//lists the type of word and the filepath to the wordlist
 	ADJECTIVE ("WordList\\adjectives.txt"),
 	NOUN ("WordList\\nouns.txt"),
 	ADVERB ("WordList\\adverbs.txt"),
@@ -24,7 +24,7 @@ public enum Phrase {
 	private Random rand;
 	private int num;
 	
-	Phrase(String fpath) {
+	Phrase(String fpath) { //real simple, gets the path for each
 		this.list = new File(fpath);
 		this.rand = new Random();
 		try {
@@ -34,11 +34,11 @@ public enum Phrase {
 		}
 	}
 	
-	public String get() throws FileNotFoundException{
+	public String get() throws FileNotFoundException{ //get a random word from the given list
 		return nthString(random(rand,0,num-1),list);
 	}
 	
-	public String get(String imp, double chance,String end) throws FileNotFoundException{
+	public String get(String imp, double chance,String end) throws FileNotFoundException{ //has a chance of returning the leading string, tailing string, and PHRASE type
 		if(rand.nextFloat() < chance){
 			imp = imp + nthString(random(rand,0,num),list) + end;
 			return imp;
@@ -47,7 +47,7 @@ public enum Phrase {
 	}
 	
 	
-	public String nthString(int n, File f) throws FileNotFoundException{
+	public String nthString(int n, File f) throws FileNotFoundException{ //gets the nth String in a file
 		Scanner console = new Scanner(f);
 		for(int i = 0; i < n; i++ ){
 			console.next();
@@ -55,7 +55,7 @@ public enum Phrase {
 		return console.next();
 	}
 	
-	public int wordCount(File f) throws FileNotFoundException{
+	public int wordCount(File f) throws FileNotFoundException{ //how many words?
 		Scanner console = new Scanner(f);
 		int out = 0;
 		while(console.hasNext()){

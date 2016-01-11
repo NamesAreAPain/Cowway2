@@ -3,49 +3,53 @@ import java.util.*;
 import java.io.*;
 
 
-public class Farm{
-	private FarmTile[][] farmmap;
-	private ArrayList<FarmTile> tilelist;
-	private int[] dimensions;
-	private String name;
-	private World world;
+public class Farm{ //farm has an array of FarmTiles
+	private FarmTile[][] farmmap; //the actual meat of the class
+	private ArrayList<FarmTile> tilelist; //an index of FarmTiles
+	private int[] dimensions; //dimensions of the farm , in form (y,x) beacasue that's how arrays print
+	private String name; //the name
+	private World world; //what world are we in?
 	
 	
 	public Farm(int[]size,World world) throws FileNotFoundException{
-		this.farmmap = new FarmTile[size[0]][size[1]];
-		this.name = "The " + Phrase.ADJECTIVE.get() + " " + Phrase.LETTER.get() + " " + Phrase.NOUN.get(); 
-		this.dimensions = size;
+		this.farmmap = new FarmTile[size[0]][size[1]]; //founds the farm
+		this.name = "The " + Phrase.ADJECTIVE.get() + " " + Phrase.LETTER.get() + " " + Phrase.NOUN.get(); //names the farm using Phrase
+		this.dimensions = size; //sets dimensions;
+		
+		//bughunting
 		System.out.println(Arrays.toString(dimensions));
-		this.tilelist = new ArrayList<FarmTile>();
-		for(int i = 0; i < dimensions[0]; i++){
+		
+		this.tilelist = new ArrayList<FarmTile>(); //starts the list
+		for(int i = 0; i < dimensions[0]; i++){ //all tiles 
 			for(int j = 0; j < dimensions[1]; j++){
 				farmmap[i][j] = aTile();
 				tilelist.add(farmmap[i][j]);
 				
 			}
 		}
-		this.world = world;
+		this.world = world; //the world we're in
 		
 	}
 	
-	public FarmTile[][] getMap(){
+	public FarmTile[][] getMap(){ //the array of all the animals
 		return farmmap;
 	}
-	public int[] getDimensions() {
+	
+	public int[] getDimensions() { //gets the dimensions 
 		return this.dimensions;
 	}
 	
-	public void tick(){
+	public void tick(){ //ticks the farm, by telling all the animals to do their thing
 		for(FarmTile x: tilelist){
 			x.doStuffForAnHour(world.whatTimeOfDay());
 		}
 	}
 	
-	public void Genesis(){
+	public void Genesis(){ //no longer really used for anything
 		
 	}
 	
-	public FarmTile aTile(){
+	public FarmTile aTile(){ //chooses a random tile
 		Random rand = new Random();
 		int i = random(rand,1,15);
 		switch(i){
@@ -68,11 +72,11 @@ public class Farm{
 		return(new Dirt(this,Tile.DIRT));
 	}
 	
-	public String getName(){
+	public String getName(){ //get the name of the farm
 		return name;
 	}
 	
-	public int howMuchGrass(){
+	public int howMuchGrass(){ //how much grass? pretty self explanatory
 		int grass = 0;
 		for(FarmTile y : tilelist){
 			if(y.getTType() == Tile.GRASS){
@@ -82,7 +86,7 @@ public class Farm{
 		return grass;
 	}
 	
-	public int howManyCows(){
+	public int howManyCows(){ //how many cows
 		int cows = 0;
 		try {
 		for(FarmTile y : tilelist){
@@ -96,15 +100,16 @@ public class Farm{
 		return cows;
 	}
 	
-	public FarmTile getThing(int y,int x){
+	public FarmTile getThing(int y,int x){ //gets a thing at a location
 		return farmmap[y][x];
 	}
 	
-	public FarmTile getThing(int[] loc){
+	public FarmTile getThing(int[] loc){ //gets a thing at a location (with an array input)
 		return farmmap[loc[0]][loc[1]];
 	}
 	
 	public int[] getLocation(FarmTile thing){ //HARDERST PART OF ENTIRE PROJECT, HANDS DOWN. IMPOSSIBLE TO DO WELL, HARD TO DO AT ALL.
+		//finds the location of the damn thing
 		int y = 0;
 		int x = 0;
 		for(int i = 0; i < dimensions[0]; i++){
@@ -118,23 +123,23 @@ public class Farm{
 		return out;
 	}
 	
-	public void setThing(FarmTile thing, int y, int x){
+	public void setThing(FarmTile thing, int y, int x){ //sets the location to the thing
 		farmmap[y][x] = thing;
 	}
 	
-	public void setThing(FarmTile thing, int[] loc){
+	public void setThing(FarmTile thing, int[] loc){ //see above
 		farmmap[loc[0]][loc[1]] = thing;
 	}
 	
 	
-	public boolean isOpenTile(int y, int x){
+	public boolean isOpenTile(int y, int x){ //is the tile available to be moved to by a cow?
 		if( (y < dimensions[0]-1) && (x < dimensions[1]-1) && (getThing(y,x).getTType() == Tile.GRASS || getThing(y,x).getTType() == Tile.DIRT || getThing(y,x).getTType() == Tile.POISONGRASS) ){
 			return true;
 		}
 		return false;
 	}
 	
-	public boolean isOpenTile(int[] loc){
+	public boolean isOpenTile(int[] loc){ //same thing
 		if( (loc[0] < dimensions[0]-1) && (loc[1] < dimensions[1]-1) && (getThing(loc).getTType() == Tile.GRASS || getThing(loc).getTType() == Tile.DIRT || getThing(loc).getTType() == Tile.POISONGRASS) ){
 			return true;
 		}
@@ -142,7 +147,7 @@ public class Farm{
 	}
 	
 	
-	public boolean moveThing(FarmTile thing, Dir direction){
+	public boolean moveThing(FarmTile thing, Dir direction){ //moves the thing in a cardinal direction
 		int[] loc0 = getLocation(thing);
 		int[] loc1 = direction.go(loc0);
 		if(!isOpenTile(loc1)) return false;
@@ -151,7 +156,7 @@ public class Farm{
 		return true;
 	}
 	
-	public boolean moveThing(FarmTile thing, int[] loc){
+	public boolean moveThing(FarmTile thing, int[] loc){ //moves the thing to given spot (for flying cow)
 		int[] loc0 = getLocation(thing);
 		int[] loc1 = loc;
 		if(!isOpenTile(loc1)) return false;
@@ -160,7 +165,7 @@ public class Farm{
 		return true;
 	}
 	
-	public void rapture(FarmTile thing){
+	public void rapture(FarmTile thing){ //removes thing, replacing ground with dirt;
 		setThing(new Dirt(this,Tile.DIRT), this.getLocation(thing));
 		tilelist.remove(thing);
 	}
@@ -169,7 +174,7 @@ public class Farm{
 		return(num1 -1 + (int)Math.ceil(rand.nextDouble()*(num2-num1+1)));
 	}
 	
-	public World getWorld(){
+	public World getWorld(){ //what world are we in?
 		return world;
 	}
 }
