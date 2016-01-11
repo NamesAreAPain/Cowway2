@@ -70,7 +70,7 @@ public class Farm{
 	public int howMuchGrass(){
 		int grass = 0;
 		for(FarmTile y : tilelist){
-			if(y.getType().equals("Grass")){
+			if(y.getTType() == Tile.GRASS){
 				grass++;
 			}
 		}
@@ -81,7 +81,7 @@ public class Farm{
 		int cows = 0;
 		try {
 		for(FarmTile y : tilelist){
-			if(y.getType().equals("Cow")){
+			if(y.getTType() == Tile.COW || y.getTType() == Tile.FLYINGCOW || y.getTType() == Tile.FLYINGCOW ){
 				cows++;
 			}
 		}
@@ -123,14 +123,14 @@ public class Farm{
 	
 	
 	public boolean isOpenTile(int y, int x){
-		if( (y < dimensions[0]-1) && (x < dimensions[1]-1) && (getThing(y,x).getType().equals("Grass") || getThing(y,x) == null) ){
+		if( (y < dimensions[0]-1) && (x < dimensions[1]-1) && (getThing(y,x).getTType() == Tile.GRASS || getThing(y,x) == null || getThing(y,x).getTType() == Tile.POISONGRASS) ){
 			return true;
 		}
 		return false;
 	}
 	
 	public boolean isOpenTile(int[] loc){
-		if( (loc[0] < dimensions[0]-1) && (loc[1] < dimensions[1]-1) && (getThing(loc).getType().equals("Grass") || getThing(loc) == null) ){
+		if( (y < dimensions[0]-1) && (x < dimensions[1]-1) && (getThing(y,x).getTType() == Tile.GRASS || getThing(y,x) == null || getThing(y,x).getTType() == Tile.POISONGRASS) ){
 			return true;
 		}
 		return false;
