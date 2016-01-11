@@ -7,15 +7,18 @@ public class FarmTile {
 	private int[] loc;
 	private Farm farm;
 	private String type;
-	private int amount;
+	int amount;
 	String name;
-	
 	
 	public FarmTile(Farm farm, String type) {
 		this.farm = farm;
 		this.type = type;
 		this.amount = -1;
 		this.name = this.type;
+	}
+
+	public int[] getLoc() {
+		return loc;
 	}
 	
 	public String getType() {

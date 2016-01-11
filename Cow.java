@@ -8,8 +8,10 @@ public class Cow extends FarmTile {
 	private int hunger;
 	private int age;
 	private int sicknessLevel;
+	private Farm farm;
 
-	public Cow() {
+	public Cow(Farm farm, String type) throws FileNotFoundException {
+		super(farm, type);
 		this.name = Phrase.ADJECTIVE.get() + Phrase.NAME.get() + "the Cow";
 	}
 
@@ -25,23 +27,23 @@ public class Cow extends FarmTile {
 			Dir direct1 = null;
 			if (direct == 1) {
 				//north
-				direct1 = NORTH;
+				direct1 = Dir.NORTH;
 			} else if (direct == 2) {
 				//east
-				direct1 = EAST;
+				direct1 = Dir.EAST;
 			} else if (direct == 3) {
 				//south
-				direct1 = SOUTH;
+				direct1 = Dir.SOUTH;
 			} else if (direct == 4) {
 				//west
-				direct1 = WEST;
+				direct1 = Dir.WEST;
 			}
-			if (direct1.go(loc).getThing().getType().equals("Grass")) {
-				this.hunger -= direct1.go(loc).getThing().returnAmount();
-				this.sicknessLevel += direct1.go(loc).getThing().returnSickness();
-				moveThing(this, direct1);
+			if (farm.getThing(direct1.go(getLoc())).getType().equals("Grass")) {
+				this.hunger -= farm.getThing(direct1.go(getLoc())).returnAmount();
+				this.sicknessLevel += farm.getThing(direct1.go(getLoc())).returnSickness();
+				farm.moveThing(this, direct1);
 			} else {
-				moveThing(this, direct1);
+				farm.moveThing(this, direct1);
 			}
 		}
 	}
