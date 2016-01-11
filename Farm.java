@@ -60,7 +60,8 @@ public class Farm{
 			case 15:
 			case 9 : return(new Grass(this,Tile.GRASS));
 			case 10: return(new PoisonGrass(this,Tile.POISONGRASS));
-		}
+		} 
+		return(new Grass(this,Tile.GRASS));
 	}
 	
 	public String getName(){

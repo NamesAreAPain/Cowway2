@@ -43,7 +43,6 @@ public class FarmWindows{
 						String theF = "a";
 						
 						switch(farm.getMap()[j][i].getTType()){
-							case COW : theC= CSIColor.BROWN; theF = "\u263A"; break;
 							case DIRT : theC = CSIColor.BROWN; theF = "\u2588"; break;
 							case GRASS : theC = CSIColor.GREEN; theF = "\u2588"; break;
 							case POISONGRASS : theC = CSIColor.PURPLE; theF = "\u2588"; break;
