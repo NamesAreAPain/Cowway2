@@ -9,12 +9,11 @@ public class FarmTile {
 	int amount;
 	String name;
 	Tile ttype;
-	int sicknessLevel
+	int sicknessLevel;
 	
 	public FarmTile(Farm farm, Tile ttype) {
 		this.farm = farm;
 		this.amount = -1;
-		this.name = this.type;
 		this.ttype = Tile.DIRT;
 	}
 
@@ -36,7 +35,7 @@ public class FarmTile {
 	
 	public void rapture(){
 		farm.setThing(null, loc);
-		farm.rapture();
+		farm.rapture(this);
 	}
 	
 	public int returnAmount() {
@@ -45,6 +44,10 @@ public class FarmTile {
 
 	public void increaseThings() {
 
+	}
+
+	public int getSickness() {
+		return sicknessLevel;
 	}
 
 	public Boolean equals(FarmTile other) {

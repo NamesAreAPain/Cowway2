@@ -20,12 +20,13 @@ public class FlyingCow extends Cow {
 		increaseThings();
 	
 		dimensions = farm.getDimensions();
+		Random rand = new Random();
 		int[] loc1 = {random(rand, 0, dimensions[0]), random(rand, 0, dimensions[1])};
 
-		if (farm.getThing(loc1).getTType.equals(Tile.GRASS)) {
-			this.hunger -= farm.getThing(loc1).returnAmoutn();
-			this.sickness += farm.getThing(loc1).getSickness();
+		if (farm.getThing(loc1).getTType().equals(Tile.GRASS)) {
+			this.hunger -= farm.getThing(loc1).returnAmount();
+			this.sicknessLevel += farm.getThing(loc1).getSickness();
 		}
-		moveThing(this, loc1);
+		farm.moveThing(this, loc1);
 	}
 }
