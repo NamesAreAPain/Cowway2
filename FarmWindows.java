@@ -42,13 +42,13 @@ public class FarmWindows{
 						CSIColor theC = CSIColor.WHITE;
 						String theF = "a";
 						
-						switch(farm.farmmap[j][i].getTtype()){
-							case COW : theC= CSIColor.BROWN; theF = "c"; break;
+						switch(farm.getMap()[j][i].getTtype()){
+							case COW : theC= CSIColor.BROWN; theF = "\u263A"; break;
 							case DIRT : theC = CSIColor.BROWN; theF = "\u2588"; break;
 							case GRASS : theC = CSIColor.GREEN; theF = "\u2588"; break;
 							case POISONGRASS : theC = CSIColor.PURPLE; theF = "\u2588"; break;
-							case FLYINGCOW : theC = CSIColor.CYAN; theF = "c"; break;
-							case NOCTURNALCOW : theC = CSIColor.GRAY; theF = "c"; break;
+							case FLYINGCOW : theC = CSIColor.CYAN; theF = "\u263A"; break;
+							case NOCTURNALCOW : theC = CSIColor.GRAY; theF = "\u263A"; break;
 						}
 						
 						csi.print(i + 3, j + 3, theF, theC );

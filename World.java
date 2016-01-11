@@ -33,7 +33,7 @@ public class World{
 	
 	public void timeTick(){
 		time++;
-		timeOfDay = timeTick % 24;
+		timeOfDay = time % 24;
 		for(Farm x: farms){
 			x.tick();
 		}

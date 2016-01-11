@@ -19,6 +19,9 @@ public class Farm{
 		this.dimensions = size;
 	}
 	
+	public FarmTile[][] getMap(){
+		return farmmap;
+	}
 	public int[] getDimensions() {
 		return dimensions;
 	}
