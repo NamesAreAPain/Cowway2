@@ -15,6 +15,7 @@ public enum Phrase {
 	FEMALENAME ("WordList\\namesFemale.txt"),
 	NAME ("WordList\\names.txt"),
 	SURNAME ("WordList\\surnames.txt"),
+	TITLE ("WordList\\title.txt"),
 	LETTER ("WordList\\letters.txt");
 	
 	
