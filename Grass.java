@@ -8,7 +8,9 @@ public class Grass extends FarmTile {
 
 	public Grass(Farm farm, Tile ttype) {
 		super(farm, ttype);
-		this.name = Phrase.ADJECTIVE.get() + " Grass";
+		try {
+			this.name = Phrase.ADJECTIVE.get() + " Grass";
+		} catch(FileNotFoundException e) {}
 		this.ttype = Tile.GRASS;
 	}
 	
