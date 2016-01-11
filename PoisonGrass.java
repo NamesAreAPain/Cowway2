@@ -2,6 +2,7 @@ public class PoisonGrass extends Grass {
 
 	public PoisonGrass() {
 		this.name = Phrase.ADJECTIVE.get() + "the Poison Grass";
+		this.ttype = Tile.POISONGRASS;
 	}
 
 	public void increaseThings() {

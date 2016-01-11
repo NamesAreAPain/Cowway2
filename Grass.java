@@ -9,6 +9,7 @@ public class Grass extends FarmTile {
 
 	public Grass(Farm farm, String type) {
 		this.name = Phrase.ADJECTIVE.get() + "the Grass";
+		this.ttype = Tile.GRASS;
 	}
 	
 	public void increaseThings() {//increases things every hour

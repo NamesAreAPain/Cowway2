@@ -5,6 +5,7 @@ public class FlyingCow extends Cow {
 	public FlyingCow(Farm farm, String type) throws FileNotFoundException {
 		super(farm, type);
 		this.name = Phrase.ADJECTIVE.get() + Phrase.NAME.get() + "the Flying Cow";
+		this.ttype = Tile.FLYINGCOW;
 	}
 
 	public int random(Random rand,int num1,int num2){  //returns a random value between num1 and num2 (inclusive)

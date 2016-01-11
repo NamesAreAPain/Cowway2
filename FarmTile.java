@@ -9,12 +9,14 @@ public class FarmTile {
 	private String type;
 	private int amount;
 	private String name;
+	private Tile ttype;
 	
 	public FarmTile(Farm farm, String type) {
 		this.farm = farm;
 		this.type = type;
 		this.amount = -1;
 		this.name = this.type;
+		this.ttype = Tile.DIRT;
 	}
 
 	public int[] getLoc() {
@@ -27,6 +29,10 @@ public class FarmTile {
 	
 	public void doStuffForAnHour(int hour) {
 		
+	}
+	
+	public Tile getTType(){
+		return ttype;
 	}
 	
 	public void rapture(){

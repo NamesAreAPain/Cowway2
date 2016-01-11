@@ -39,6 +39,19 @@ public class FarmWindows{
 				for(int i = 0; i < farm.getDimensions()[1];i++){
 					for(int j = 0; j < farm.getDimensions()[0];j++){
 						
+						CSIColor theC = CSIColor.WHITE;
+						String theF = "a";
+						
+						switch(farm.farmmap[j][i].getTtype()){
+							case COW : theC= CSIColor.BROWN; theF = "c"; break;
+							case DIRT : theC = CSIColor.BROWN; theF = "\u2588"; break;
+							case GRASS : theC = CSIColor.GREEN; theF = "\u2588"; break;
+							case POISONGRASS : theC = CSIColor.PURPLE; theF = "\u2588"; break;
+							case FLYINGCOW : theC = CSIColor.CYAN; theF = "c"; break;
+							case NOCTURNALCOW : theC = CSIColor.GRAY; theF = "c"; break;
+						}
+						
+						csi.print(i + 3, j + 3, theF, theC );
 					}
 				}
 				

@@ -13,6 +13,7 @@ public class Cow extends FarmTile {
 	public Cow(Farm farm, String type) throws FileNotFoundException {
 		super(farm, type);
 		this.name = Phrase.ADJECTIVE.get() + Phrase.NAME.get() + "the Cow";
+		this.ttype = Tile.COW;
 	}
 
 	public int random(Random rand,int num1,int num2){  //returns a random value between num1 and num2 (inclusive)

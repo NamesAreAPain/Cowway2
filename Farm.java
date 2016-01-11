@@ -24,7 +24,7 @@ public class Farm{
 	}
 
 	public void tick(){
-		for(FarmTile x: tileList){
+		for(FarmTile x: tilelist){
 			x.doStuffForAnHour(world.whatTimeOfDay());
 		}
 	}
@@ -150,6 +150,11 @@ public class Farm{
 		setThing(thing, loc1);
 		setThing(null, loc0);
 		return true;
+	}
+	
+	public void rapture(FarmTile thing){
+		setThing(null, getLocation(thing) );
+		tilelist.remove(thing);
 	}
 	
 	public World getWorld(){

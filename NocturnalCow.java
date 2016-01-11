@@ -3,6 +3,7 @@ public class NocturnalCow extends Cow {
 	public NocturnalCow(Farm farm, String type) {
 		super(farm, type);
 		this.name = Phrase.ADJECTIVE.get() + Phrase.NAME.get() + "the Nocturnal Cow";
+		this.ttype = Tile.NOCTURNALCOW;
 	}
 
 	public int random(Random rand,int num1,int num2){  //returns a random value between num1 and num2 (inclusive)
