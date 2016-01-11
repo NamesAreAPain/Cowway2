@@ -41,14 +41,14 @@ public class Cow extends FarmTile {
 			}
 			if (farm.getThing(direct1.go(getLoc())).getType().equals("Grass")) {
 				this.hunger -= farm.getThing(direct1.go(getLoc())).returnAmount();
-				this.sicknessLevel += farm.getThing(direct1.go(getLoc())).returnSickness();
+				this.sicknessLevel += farm.getThing(direct1.go(getLoc())).getSickness();
 				farm.moveThing(this, direct1);
 			} else {
 				farm.moveThing(this, direct1);
 			}
 
 			int randInt = random(rand, 1, 100);
-			int sick = (0.000001*age*sicknessLevel);
+			int sick = (int) (0.000001*age*sicknessLevel);
 			if (hunger == 100 || age == 90001 || sick > randInt) {
 				rapture();
 			}

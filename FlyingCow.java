@@ -1,3 +1,7 @@
+import java.util.Scanner; 
+import java.util.*; 
+import java.io.*;
+
 public class FlyingCow extends Cow {
 
 	private int[] dimensions;
@@ -18,7 +22,7 @@ public class FlyingCow extends Cow {
 		dimensions = farm.getDimensions();
 		int[] loc1 = {random(rand, 0, dimensions[0]), random(rand, 0, dimensions[1])}
 
-		
+
 
 		if (direct1.go(loc).getThing().getType().equals("Grass")) {
 			this.hunger -= direct1.go(loc).getThing().returnAmount();

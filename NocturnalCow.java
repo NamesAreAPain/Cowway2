@@ -1,3 +1,7 @@
+import java.util.Scanner; 
+import java.util.*; 
+import java.io.*;
+
 public class NocturnalCow extends Cow {
 
 	public NocturnalCow(Farm farm, Tile ttype) {
@@ -32,14 +36,14 @@ public class NocturnalCow extends Cow {
 
 			if (farm.getThing(direct1.go(getLoc())).getType().equals("Grass")) {
 				this.hunger -= farm.getThing(direct1.go(getLoc())).returnAmount();
-				this.sicknessLevel += farm.getThing(direct1.go(getLoc())).returnSickness();
+				this.sicknessLevel += farm.getThing(direct1.go(getLoc())).getSickness();
 				farm.moveThing(this, direct1);
 			} else {
 				farm.moveThing(this, direct1);
 			}
 
 			int randInt = random(rand, 1, 100);
-			int sick = (int)(0.000001*getAge()*getSickness());
+			int sick = (int) (0.000001*getAge()*getSickness());
 			if (this.hunger == 100 || this.age == 90001 || sick > randInt) {
 				rapture();
 			}
