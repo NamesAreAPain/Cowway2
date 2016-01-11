@@ -11,5 +11,6 @@ E:\Documents\Programming\APCS\Cowway\Cowway\NocturnalCow.java
 E:\Documents\Programming\APCS\Cowway\Cowway\Phrase.java
 E:\Documents\Programming\APCS\Cowway\Cowway\PoisonGrass.java
 E:\Documents\Programming\APCS\Cowway\Cowway\Test.java
+E:\Documents\Programming\APCS\Cowway\Cowway\Tile.java
 E:\Documents\Programming\APCS\Cowway\Cowway\World.java
 E:\Documents\Programming\APCS\Cowway\Cowway\WordList\Script.java
