@@ -18,18 +18,14 @@ public class FlyingCow extends Cow {
 
 	public void doStuffForAnHour(int hour) {
 		increaseThings();
-		
+	
 		dimensions = farm.getDimensions();
 		int[] loc1 = {random(rand, 0, dimensions[0]), random(rand, 0, dimensions[1])};
 
-
-
-		if (direct1.go(loc).getThing().getType().equals("Grass")) {
-			this.hunger -= direct1.go(loc).getThing().returnAmount();
-			this.sicknessLevel += direct1.go(loc).getThing().returnSickness();
-			moveThing(this, direct1);
-		} else {
-			moveThing(this, direct1);
+		if (farm.getThing(loc1).getTType.equals(Tile.GRASS)) {
+			this.hunger -= farm.getThing(loc1).returnAmoutn();
+			this.sickness += farm.getThing(loc1).getSickness();
 		}
+		moveThing(this, loc1);
 	}
 }

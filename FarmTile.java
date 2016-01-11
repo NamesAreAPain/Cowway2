@@ -9,6 +9,7 @@ public class FarmTile {
 	int amount;
 	String name;
 	Tile ttype;
+	int sicknessLevel
 	
 	public FarmTile(Farm farm, Tile ttype) {
 		this.farm = farm;
