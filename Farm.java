@@ -130,7 +130,7 @@ public class Farm{
 	}
 	
 	public boolean isOpenTile(int[] loc){
-		if( (y < dimensions[0]-1) && (x < dimensions[1]-1) && (getThing(y,x).getTType() == Tile.GRASS || getThing(y,x) == null || getThing(y,x).getTType() == Tile.POISONGRASS) ){
+		if( (loc[0] < dimensions[0]-1) && (loc[1] < dimensions[1]-1) && (getThing(loc).getTType() == Tile.GRASS || getThing(loc) == null || getThing(loc).getTType() == Tile.POISONGRASS) ){
 			return true;
 		}
 		return false;
