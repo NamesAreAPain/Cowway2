@@ -30,17 +30,15 @@ public class NocturnalCow extends Cow {
 				default: direct1 = Dir.NORTH;//cow go north
 			}
 
-			if (farm.getThing(direct1.go(getLoc())).getTType().equals(Tile.GRASS)) {
-				this.hunger -= farm.getThing(direct1.go(getLoc())).returnAmount();
-				this.sicknessLevel += farm.getThing(direct1.go(getLoc())).getSickness();
-				farm.moveThing(this, direct1);
-			} else {
-				farm.moveThing(this, direct1);
+			if (farm.getThing(direct1.go(getLoc())).getTType().equals(Tile.GRASS)) {//if the tile the cow is going to is grass
+				this.hunger -= farm.getThing(direct1.go(getLoc())).returnAmount();//absorb the hunger
+				this.sicknessLevel += farm.getThing(direct1.go(getLoc())).getSickness();//gain the sickness
 			}
+			farm.moveThing(this, direct1);
 
 			int randInt = random(rand, 1, 100);
 			int sick = (int) (0.000001*getAge()*getSickness());
-			if (this.hunger == 100 || this.age == 90001 || sick > randInt) {
+			if (this.hunger == 100 || this.age == 90001 || sick > randInt) {//checks for death
 				rapture();
 			}
 		}

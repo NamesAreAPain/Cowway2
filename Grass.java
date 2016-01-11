@@ -6,7 +6,7 @@ public class Grass extends FarmTile {
 	
 	String name;
 
-	public Grass(Farm farm, Tile ttype) {
+	public Grass(Farm farm, Tile ttype) {//constructor with arguments like the super
 		super(farm, ttype);
 		try {
 			this.name = Phrase.ADJECTIVE.get() + " Grass";

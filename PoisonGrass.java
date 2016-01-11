@@ -4,7 +4,7 @@ import java.io.*;
 
 public class PoisonGrass extends Grass {
 
-	public PoisonGrass(Farm farm, Tile ttype) {
+	public PoisonGrass(Farm farm, Tile ttype) {//constructor with same arguments
 		super(farm, ttype);
 		try {
 			this.name = Phrase.ADJECTIVE.get() + " Poison Grass";
@@ -12,7 +12,7 @@ public class PoisonGrass extends Grass {
 		this.ttype = Tile.POISONGRASS;
 	}
 
-	public void increaseThings() {
+	public void increaseThings() {//increases all the things
 		this.amount += 2;
 		this.sicknessLevel = this.amount;
 	}
