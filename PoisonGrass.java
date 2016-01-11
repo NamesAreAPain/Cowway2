@@ -1,7 +1,7 @@
 public class PoisonGrass extends Grass {
 
 	public PoisonGrass(Farm farm, Tile ttype) {
-		super(farm, type);
+		super(farm, ttype);
 		this.name = Phrase.ADJECTIVE.get() + " Poison Grass";
 		this.ttype = Tile.POISONGRASS;
 	}

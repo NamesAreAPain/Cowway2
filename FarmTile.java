@@ -4,11 +4,11 @@ import java.io.*;
 
 public class FarmTile {
 	
-	private int[] loc;
-	private Farm farm;
-	private int amount;
-	private String name;
-	private Tile ttype;
+	int[] loc;
+	Farm farm;
+	int amount;
+	String name;
+	Tile ttype;
 	
 	public FarmTile(Farm farm, Tile ttype) {
 		this.farm = farm;

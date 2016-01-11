@@ -3,7 +3,7 @@ public class FlyingCow extends Cow {
 	private int[] dimensions;
 
 	public FlyingCow(Farm farm, Tile ttype) throws FileNotFoundException {
-		super(farm, type);
+		super(farm, ttype);
 		this.name = Phrase.ADJECTIVE.get() + Phrase.NAME.get() + "the Flying Cow";
 		this.ttype = Tile.FLYINGCOW;
 	}
@@ -17,6 +17,8 @@ public class FlyingCow extends Cow {
 		
 		dimensions = farm.getDimensions();
 		int[] loc1 = {random(rand, 0, dimensions[0]), random(rand, 0, dimensions[1])}
+
+		
 
 		if (direct1.go(loc).getThing().getType().equals("Grass")) {
 			this.hunger -= direct1.go(loc).getThing().returnAmount();

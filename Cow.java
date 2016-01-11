@@ -4,14 +4,14 @@ import java.io.*;
 
 public class Cow extends FarmTile {
 	
-	private String name;
-	private int hunger;
-	private int age;
-	private int sicknessLevel;
-	private Farm farm;
+	String name;
+	int hunger;
+	int age;
+	int sicknessLevel;
+	Farm farm;
 
 	public Cow(Farm farm, Tile ttype) throws FileNotFoundException {
-		super(farm, type);
+		super(farm, ttype);
 		this.name = Phrase.ADJECTIVE.get() + Phrase.NAME.get() + "the Cow";
 		this.ttype = Tile.COW;
 	}
@@ -53,6 +53,14 @@ public class Cow extends FarmTile {
 				rapture();
 			}
 		}
+	}
+
+	public int getSickness() {
+		return sicknessLevel;
+	}
+
+	public int getAge() {
+		return age;
 	}
 
 	public void increaseThings() {

@@ -1,7 +1,7 @@
 public class NocturnalCow extends Cow {
 
 	public NocturnalCow(Farm farm, Tile ttype) {
-		super(farm, type);
+		super(farm, ttype);
 		this.name = Phrase.ADJECTIVE.get() + Phrase.NAME.get() + "the Nocturnal Cow";
 		this.ttype = Tile.NOCTURNALCOW;
 	}
@@ -12,6 +12,7 @@ public class NocturnalCow extends Cow {
 
 	public void doStuffForAnHour(int hour) {
 		increaseThings();
+		Random rand = new Random();
 		if (hour < 6 || hour > 18) {
 			int direct = random(rand, 1, 4);
 			Dir direct1 = null;
@@ -38,8 +39,8 @@ public class NocturnalCow extends Cow {
 			}
 
 			int randInt = random(rand, 1, 100);
-			int sick = (0.000001*age*sicknessLevel);
-			if (hunger == 100 || age == 90001 || sick > randInt) {
+			int sick = (int)(0.000001*getAge()*getSickness());
+			if (this.hunger == 100 || this.age == 90001 || sick > randInt) {
 				rapture();
 			}
 		}

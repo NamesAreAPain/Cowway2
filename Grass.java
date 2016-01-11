@@ -4,10 +4,11 @@ import java.io.*;
 
 public class Grass extends FarmTile {
 	
-	private String name;
-	private int sickness;
+	String name;
+	int sickness;
 
 	public Grass(Farm farm, Tile ttype) {
+		super(farm, ttype);
 		this.name = Phrase.ADJECTIVE.get() + " Grass";
 		this.ttype = Tile.GRASS;
 	}
