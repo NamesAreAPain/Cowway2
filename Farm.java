@@ -147,6 +147,11 @@ public class Farm{ //farm has an array of FarmTiles
 	}
 	
 	
+	public Tile getTileTypeAt(int[] loc){
+		if(getThing(loc) == null) return Tile.DIRT;
+		return getThing(loc).getTType();
+	}
+	
 	public boolean moveThing(FarmTile thing, Dir direction){ //moves the thing in a cardinal direction
 		int[] loc0 = getLocation(thing);
 		int[] loc1 = direction.go(loc0);

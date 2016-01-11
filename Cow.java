@@ -35,7 +35,7 @@ public class Cow extends FarmTile {
 				default: direct1 = Dir.NORTH;
 			}
 
-			if (getTileType(farm.getThing(direct1.go(getLoc()))).equals(Tile.GRASS)) {//if the tile the cow moves to is grass
+			if (farm.getTileTypeAt(direct1.go(getLoc())) == Tile.GRASS) {//if the tile the cow moves to is grass
 				this.hunger -= farm.getThing(direct1.go(getLoc())).returnAmount();
 				this.sicknessLevel += farm.getThing(direct1.go(getLoc())).getSickness();
 			}
