@@ -56,10 +56,10 @@ public class FarmWindows{
 							default : theC= CSIColor.BROWN; theF = "\u263A"; break;
 						}
 						
-						csi.print(i + 3, j + 3, theF, theC );
+						this.csi.print(i + 3, j + 3, theF, theC );
 					}
 				}
-				csi.refresh();
+				this.csi.refresh();
 				
 				
 			
