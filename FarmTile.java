@@ -6,14 +6,12 @@ public class FarmTile {
 	
 	private int[] loc;
 	private Farm farm;
-	private String type;
 	private int amount;
 	private String name;
 	private Tile ttype;
 	
-	public FarmTile(Farm farm, String type) {
+	public FarmTile(Farm farm, Tile ttype) {
 		this.farm = farm;
-		this.type = type;
 		this.amount = -1;
 		this.name = this.type;
 		this.ttype = Tile.DIRT;

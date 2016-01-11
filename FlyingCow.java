@@ -2,7 +2,7 @@ public class FlyingCow extends Cow {
 
 	private int[] dimensions;
 
-	public FlyingCow(Farm farm, String type) throws FileNotFoundException {
+	public FlyingCow(Farm farm, Tile ttype) throws FileNotFoundException {
 		super(farm, type);
 		this.name = Phrase.ADJECTIVE.get() + Phrase.NAME.get() + "the Flying Cow";
 		this.ttype = Tile.FLYINGCOW;

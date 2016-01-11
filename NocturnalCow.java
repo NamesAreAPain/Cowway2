@@ -1,6 +1,6 @@
 public class NocturnalCow extends Cow {
 
-	public NocturnalCow(Farm farm, String type) {
+	public NocturnalCow(Farm farm, Tile ttype) {
 		super(farm, type);
 		this.name = Phrase.ADJECTIVE.get() + Phrase.NAME.get() + "the Nocturnal Cow";
 		this.ttype = Tile.NOCTURNALCOW;

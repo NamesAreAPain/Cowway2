@@ -7,8 +7,8 @@ public class Grass extends FarmTile {
 	private String name;
 	private int sickness;
 
-	public Grass(Farm farm, String type) {
-		this.name = Phrase.ADJECTIVE.get() + "the Grass";
+	public Grass(Farm farm, Tile ttype) {
+		this.name = Phrase.ADJECTIVE.get() + " Grass";
 		this.ttype = Tile.GRASS;
 	}
 	

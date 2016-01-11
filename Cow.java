@@ -10,7 +10,7 @@ public class Cow extends FarmTile {
 	private int sicknessLevel;
 	private Farm farm;
 
-	public Cow(Farm farm, String type) throws FileNotFoundException {
+	public Cow(Farm farm, Tile ttype) throws FileNotFoundException {
 		super(farm, type);
 		this.name = Phrase.ADJECTIVE.get() + Phrase.NAME.get() + "the Cow";
 		this.ttype = Tile.COW;
