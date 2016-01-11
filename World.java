@@ -10,9 +10,11 @@ public class World{
 	private String name;
 	private int minSize;
 	private int maxSize;
+	private int numfarms;
 	
 	public World(int qfarms, int minSizei, int maxSizei) throws FileNotFoundException{
 		Random rand = new Random();
+		this.numfarms = qfarms;
 		this.time = 0;
 		this.farms = new Farm[qfarms];
 		this.minSize = minSizei;
@@ -30,6 +32,9 @@ public class World{
 		}
 	}
 	
+	public int getNumFarms(){
+		return numfarms;
+	}
 	
 	public void timeTick(){
 		time++;

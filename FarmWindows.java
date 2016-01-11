@@ -11,6 +11,7 @@ import java.io.*;
 public class FarmWindows{
 	
 	private Farm farm;
+	private WSwingConsoleInterface csi;
 	
 	
 	
@@ -24,7 +25,7 @@ public class FarmWindows{
 		ConsoleSystemInterface csi = null;
 		
 		try{
-			csi = new WSwingConsoleInterface("My little Java Roguelike - Programming is fun", text);
+			this.csi = new WSwingConsoleInterface("My little Java Roguelike - Programming is fun", text);
 		}
 		catch (ExceptionInInitializerError eiie) {
 			System.out.println("*** Error: Swing Console Box cannot be initialized. Exiting...");
@@ -32,17 +33,19 @@ public class FarmWindows{
 			System.exit(-1);
 		}
 		csi.print(0,0, farm.getName(), CSIColor.WHITE);
-		int tempTime = -1;
-		while(true){
-			if(tempTime != farm.getWorld().whatTimeIsIt()){
-				
+		
+		
+		
+	}
+	
+	public void updateWindow(){
 				for(int i = 0; i < farm.getDimensions()[1];i++){
 					for(int j = 0; j < farm.getDimensions()[0];j++){
 						
 						CSIColor theC = CSIColor.WHITE;
 						String theF = "a";
 						
-						switch(farm.getMap()[j][i].getTType()){
+						switch(getTileType(farm.getMap()[j][i])){
 							case DIRT : theC = CSIColor.BROWN; theF = "\u2588"; break;
 							case GRASS : theC = CSIColor.GREEN; theF = "\u2588"; break;
 							case POISONGRASS : theC = CSIColor.PURPLE; theF = "\u2588"; break;
@@ -58,10 +61,12 @@ public class FarmWindows{
 				csi.refresh();
 				
 				
-			}
-		}
-		
+			
 	}
 	
+	public Tile getTileType(FarmTile aa){
+		if( aa == null) return Tile.DIRT;
+		return aa.getTType();
+	}
 	
 }

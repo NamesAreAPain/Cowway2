@@ -13,10 +13,18 @@ public class Farm{
 	
 	public Farm(int[]size,World world) throws FileNotFoundException{
 		this.farmmap = new FarmTile[size[0]][size[1]];
-		Arrays.fill(farmmap, null);
 		this.name = "The " + Phrase.ADJECTIVE.get() + " " + Phrase.LETTER.get() + " " + Phrase.NOUN.get(); 
-		this.world = world;
 		this.dimensions = size;
+		this.tilelist = new ArrayList<FarmTile>();
+		for(int i = 0; i < dimensions[0]; i++){
+			for(int j = 0; j < dimensions[1]; j++){
+				farmmap[i][j] = aTile();
+				tilelist.add(farmmap[i][j]);
+				
+			}
+		}
+		this.world = world;
+		
 	}
 	
 	public FarmTile[][] getMap(){
@@ -33,12 +41,7 @@ public class Farm{
 	}
 	
 	public void Genesis(){
-		for(int i = 0; i < dimensions[0]; i++){
-			for(int j = 0; j < dimensions[1]; j++){
-				farmmap[i][j] = aTile();
-				tilelist.add(farmmap[i][j]);
-			}
-		}
+		
 	}
 	
 	public FarmTile aTile(){

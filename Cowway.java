@@ -38,13 +38,16 @@ public class Cowway{
 		waitForEnter(csi);
 		
 		csi.print(0,2, "Home to the " + Phrase.ADJECTIVE.get() + " Farms of ", CSIColor.WHITE);
+		csi.refresh();
+		
+		waitForEnter(csi);
 		
 		FarmWindows[] windows = new FarmWindows[theWorld.getFarms().length];
-		
-		for(int i = 0; i < theWorld.getFarms().length; i++){
+		for(int i = 0; i < theWorld.getNumFarms(); i++){
 			csi.print(3,3+i, theWorld.getFarms()[i].getName() + farmInfo(theWorld.getFarms()[i]) ,CSIColor.WHITE);
-			windows[i] = new FarmWindows(theWorld.getFarms()[i]);
 			csi.refresh();
+			windows[i] = new FarmWindows(theWorld.getFarms()[i]);
+			
 		}
 		
 		theWorld.Genesis();
@@ -59,6 +62,9 @@ public class Cowway{
 			}
 			
 			theWorld.timeTick();
+			for(FarmWindows x : windows){
+				x.updateWindow();
+			}
 		}
 		
 
