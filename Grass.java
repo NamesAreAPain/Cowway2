@@ -1,7 +1,15 @@
+import java.util.Scanner; 
+import java.util.*; 
+import java.io.*;
+
 public class Grass extends FarmTile {
 	
-	private int quantity;
+	private String name;
 	private int sickness;
+
+	public Grass() {
+		this.name = Phrase.ADJECTIVE.get() + "the Grass";
+	}
 	
 	public void increaseThings() {//increases things every hour
 		this.quantity++;
@@ -13,7 +21,7 @@ public class Grass extends FarmTile {
 	}
 
 	public int returnAmount() {
-		return quantity;
+		return amount;
 	}
 
 	public int returnSickness() {
