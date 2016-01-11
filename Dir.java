@@ -11,8 +11,8 @@ public enum Dir {
 	
 	int[] go(int[] loc0){
 		int[] loc1 = new int[2];
-		loc1[0] = loc0[0] + deltaY;
-		loc1[1] = loc0[1] + deltaX;
+		loc1[0] = this.loc0[0] + this.deltaY;
+		loc1[1] = this.loc0[1] + this.deltaX;
 		return loc1;
 	}
 }
