@@ -21,15 +21,38 @@ public class Farm{
 	
 	public void tick(){
 		for(FarmTile x: tileList){
-			x.doStuffForAnHour();
+			x.doStuffForAnHour(world.whatTimeOfDay());
 		}
 	}
 	
 	public void Genesis(){
-		for(int i = 0; i < dimensions[0]){
-			for(int i = 0; i < dimensions[1]){
-				
+		for(int i = 0; i < dimensions[0]; i++){
+			for(int j = 0; j < dimensions[1]; j++){
+				farmmap[i][j] = aTile();
+				tilelist.add(farmmap[i][j]);
 			}
+		}
+	}
+	
+	public FarmTile aTile(){
+		Random rand = new Random();
+		int i = random(rand,1,15);
+		switch(i){
+			case 1 :
+			case 2 :
+			case 3 : return(new Cow(this,"Cow"));
+			case 4 : return(new FlyingCow(this,"Cow"));
+			case 5 : return(new NocturnalCow(this,"Cow"));
+			case 6 :
+			case 7 :
+			case 8 :
+			case 11:
+			case 12:
+			case 13:
+			case 14:
+			case 15:
+			case 9 : return(new Grass(this,"Grass"));
+			case 10: return(new PoisonGrass(this,"Grass"));
 		}
 	}
 	
