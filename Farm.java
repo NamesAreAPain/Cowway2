@@ -98,11 +98,18 @@ public class Farm{ //farm has an array of FarmTiles
 	}
 	
 	public FarmTile getThing(int y,int x){ //gets a thing at a location
-		return farmmap[y][x];
+		int[] loc = {y,x};
+		return getThing(loc);
 	}
 	
 	public FarmTile getThing(int[] loc){ //gets a thing at a location (with an array input)
-		return farmmap[loc[0]][loc[1]];
+		try {
+			return farmmap[loc[0]][loc[1]];
+		} catch (ArrayIndexOutOfBoundsException e){
+			return null;
+		} catch ( NullPointerException f){
+			return null;
+		}
 	}
 	
 	public int[] getLocation(FarmTile thing){ //HARDERST PART OF ENTIRE PROJECT, HANDS DOWN. IMPOSSIBLE TO DO WELL, HARD TO DO AT ALL.
@@ -121,11 +128,18 @@ public class Farm{ //farm has an array of FarmTiles
 	}
 	
 	public void setThing(FarmTile thing, int y, int x){ //sets the location to the thing
-		farmmap[y][x] = thing;
+		int[] loc = {y,x};
+		this.setThing(thing,loc);
 	}
 	
 	public void setThing(FarmTile thing, int[] loc){ //see above
-		farmmap[loc[0]][loc[1]] = thing;
+		try{
+			farmmap[loc[0]][loc[1]] = thing;
+		} catch (ArrayIndexOutOfBoundsException e){
+			
+		} catch (NullPointerException f){
+			
+		}
 	}
 	
 	
@@ -170,8 +184,15 @@ public class Farm{ //farm has an array of FarmTiles
 	}
 	
 	public void rapture(FarmTile thing){ //removes thing, replacing ground with dirt;
-		setThing(new Dirt(this,Tile.DIRT), this.getLocation(thing));
-		tilelist.remove(thing);
+		try {
+			setThing(new Dirt(this,Tile.DIRT), this.getLocation(thing));
+			tilelist.remove(thing);
+		} catch (ArrayIndexOutOfBoundsException e){
+			
+		} catch (NullPointerException f){
+			
+		}
+		
 	}
 	
 	public int random(Random rand,int num1,int num2){  //returns a random value between num1 and num2 (inclusive)
