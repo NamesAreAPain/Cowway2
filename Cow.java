@@ -21,8 +21,8 @@ public class Cow extends FarmTile {
 	
 	public void doStuffForAnHour(int hour) {
 		increaseThings();
+		Random rand = new Random();
 		if (hour < 19 || hour > 5) {
-			Random rand = new Random();
 			int direct = random(rand, 1, 4);
 			Dir direct1 = null;
 			if (direct == 1) {
@@ -44,6 +44,12 @@ public class Cow extends FarmTile {
 				farm.moveThing(this, direct1);
 			} else {
 				farm.moveThing(this, direct1);
+			}
+
+			int randInt = random(rand, 1, 100);
+			int sick = (0.000001*age*sicknessLevel);
+			if (hunger == 100 || age == 90001 || sick > randInt) {
+				rapture();
 			}
 		}
 	}

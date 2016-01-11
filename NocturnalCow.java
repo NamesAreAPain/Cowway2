@@ -1,34 +1,45 @@
 public class NocturnalCow extends Cow {
 
-	public NocturnalCow() {
+	public NocturnalCow(Farm farm, String type) {
+		super(farm, type);
 		this.name = Phrase.ADJECTIVE.get() + Phrase.NAME.get() + "the Nocturnal Cow";
+	}
+
+	public int random(Random rand,int num1,int num2){  //returns a random value between num1 and num2 (inclusive)
+		return(num1 -1 + (int)Math.ceil(rand.nextDouble()*(num2-num1+1)));
 	}
 
 	public void doStuffForAnHour(int hour) {
 		increaseThings();
 		if (hour < 6 || hour > 18) {
-			Random rand = new Random();
 			int direct = random(rand, 1, 4);
 			Dir direct1 = null;
 			if (direct == 1) {
 				//north
-				direct1 = NORTH;
+				direct1 = Dir.NORTH;
 			} else if (direct == 2) {
 				//east
-				direct1 = EAST;
+				direct1 = Dir.EAST;
 			} else if (direct == 3) {
 				//south
-				direct1 = SOUTH;
+				direct1 = Dir.SOUTH;
 			} else if (direct == 4) {
 				//west
-				direct1 = WEST;
+				direct1 = Dir.WEST;
 			}
-			if (direct1.go(loc).getThing().getType().equals("Grass")) {
-				this.hunger -= direct1.go(loc).getThing().returnAmount();
-				this.sicknessLevel += direct1.go(loc).getThing().returnSickness();
-				moveThing(this, direct1);
+
+			if (farm.getThing(direct1.go(getLoc())).getType().equals("Grass")) {
+				this.hunger -= farm.getThing(direct1.go(getLoc())).returnAmount();
+				this.sicknessLevel += farm.getThing(direct1.go(getLoc())).returnSickness();
+				farm.moveThing(this, direct1);
 			} else {
-				moveThing(this, direct1);
+				farm.moveThing(this, direct1);
+			}
+
+			int randInt = random(rand, 1, 100);
+			int sick = (0.000001*age*sicknessLevel);
+			if (hunger == 100 || age == 90001 || sick > randInt) {
+				rapture();
 			}
 		}
 	}	

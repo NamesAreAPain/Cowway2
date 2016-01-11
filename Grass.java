@@ -7,7 +7,7 @@ public class Grass extends FarmTile {
 	private String name;
 	private int sickness;
 
-	public Grass() {
+	public Grass(Farm farm, String type) {
 		this.name = Phrase.ADJECTIVE.get() + "the Grass";
 	}
 	
@@ -18,10 +18,6 @@ public class Grass extends FarmTile {
 
 	public void doStuffEveryHour(int hour) {
 		increaseThings();
-	}
-
-	public int returnAmount() {
-		return amount;
 	}
 
 	public int returnSickness() {

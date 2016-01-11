@@ -1,27 +1,22 @@
 public class FlyingCow extends Cow {
 
-	public FlyingCow() {
+	private int[] dimensions;
+
+	public FlyingCow(Farm farm, String type) throws FileNotFoundException {
+		super(farm, type);
 		this.name = Phrase.ADJECTIVE.get() + Phrase.NAME.get() + "the Flying Cow";
+	}
+
+	public int random(Random rand,int num1,int num2){  //returns a random value between num1 and num2 (inclusive)
+		return(num1 -1 + (int)Math.ceil(rand.nextDouble()*(num2-num1+1)));
 	}
 
 	public void doStuffForAnHour(int hour) {
 		increaseThings();
-		Random rand = new Random();
-		int direct = random(rand, 1, 4);
-		Dir direct1 = null;
-		if (direct == 1) {
-			//north
-			direct1 = NORTH;
-		} else if (direct == 2) {
-			//east
-			direct1 = EAST;
-		} else if (direct == 3) {
-			//south
-			direct1 = SOUTH;
-		} else if (direct == 4) {
-			//west
-			direct1 = WEST;
-		}
+		
+		dimensions = farm.getDimensions();
+		int[] loc1 = {random(rand, 0, dimensions[0]), random(rand, 0, dimensions[1])}
+
 		if (direct1.go(loc).getThing().getType().equals("Grass")) {
 			this.hunger -= direct1.go(loc).getThing().returnAmount();
 			this.sicknessLevel += direct1.go(loc).getThing().returnSickness();

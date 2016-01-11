@@ -7,8 +7,8 @@ public class FarmTile {
 	private int[] loc;
 	private Farm farm;
 	private String type;
-	int amount;
-	String name;
+	private int amount;
+	private String name;
 	
 	public FarmTile(Farm farm, String type) {
 		this.farm = farm;
@@ -30,15 +30,12 @@ public class FarmTile {
 	}
 	
 	public void rapture(){
-		
+		farm.setThing(null, loc);
+		farm.rapture();
 	}
 	
 	public int returnAmount() {
-
-	}
-
-	public int returnSickness() {
-
+		return amount;
 	}
 
 	public void increaseThings() {

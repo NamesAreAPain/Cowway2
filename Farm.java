@@ -18,7 +18,10 @@ public class Farm{
 		this.dimensions = size;
 	}
 	
-	
+	public int[] getDimensions() {
+		return dimensions;
+	}
+
 	public void tick(){
 		for(FarmTile x: tileList){
 			x.doStuffForAnHour(world.whatTimeOfDay());
@@ -130,7 +133,7 @@ public class Farm{
 	}
 	
 	
-	public boolean moveThing(FarmTile thing,Dir direction){
+	public boolean moveThing(FarmTile thing, Dir direction){
 		int[] loc0 = getLocation(thing);
 		int[] loc1 = direction.go(loc0);
 		if(!isOpenTile(loc1)) return false;
