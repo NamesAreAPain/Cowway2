@@ -33,7 +33,12 @@ public class FarmWindows{
 		csi.print(0,0, farm.getName(), CSIColor.WHITE);
 		int tempTime = -1;
 		while(true){
-			if(tempTime != )
+			if(tempTime != farm.getWorld().whatTimeIsIt()){
+				
+				
+				
+				
+			}
 		}
 		
 	}

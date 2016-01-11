@@ -5,6 +5,7 @@ import java.io.*;
 public class World{
 	
 	private int time;
+	private int timeOfDay;
 	private Farm[] farms;
 	private String name;
 	private int minSize;
@@ -23,8 +24,19 @@ public class World{
 		this.name = "The " + Phrase.ADJECTIVE.get() + " " + Phrase.NOUN.get() + " of " + Phrase.ADJECTIVE.get() + " " + Phrase.NOUN.get();
 	}
 	
+	public void Genesis(){
+		for(Farm x : farms){
+			x.Genesis();
+		}
+	}
+	
+	
 	public void timeTick(){
 		time++;
+		timeOfDay = timeTick % 24;
+		for(Farm x: farms){
+			x.tick();
+		}
 	}
 	
 	public int whatTimeIsIt(){

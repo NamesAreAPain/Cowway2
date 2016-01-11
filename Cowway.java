@@ -47,6 +47,19 @@ public class Cowway{
 			csi.refresh();
 		}
 		
+		theWorld.Genesis();
+		
+		
+		
+		while(true){
+			try {
+				Thread.sleep(100);                 //1000 milliseconds is one second.
+			} catch(InterruptedException ex) {
+				Thread.currentThread().interrupt();
+			}
+			
+			theWorld.timeTick();
+		}
 		
 
 		

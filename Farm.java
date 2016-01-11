@@ -15,6 +15,22 @@ public class Farm{
 		Arrays.fill(farmmap, null);
 		this.name = "The " + Phrase.ADJECTIVE.get() + " " + Phrase.LETTER.get() + " " + Phrase.NOUN.get(); 
 		this.world = world;
+		this.dimensions = size;
+	}
+	
+	
+	public void tick(){
+		for(FarmTile x: tileList){
+			x.doStuffForAnHour();
+		}
+	}
+	
+	public void Genesis(){
+		for(int i = 0; i < dimensions[0]){
+			for(int i = 0; i < dimensions[1]){
+				
+			}
+		}
 	}
 	
 	public String getName(){
@@ -107,5 +123,9 @@ public class Farm{
 		setThing(thing, loc1);
 		setThing(null, loc0);
 		return true;
+	}
+	
+	public World getWorld(){
+		return world;
 	}
 }
