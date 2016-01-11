@@ -35,7 +35,7 @@ public enum Phrase {
 	}
 	
 	public String get() throws FileNotFoundException{
-		return nthString(random(rand,0,num),list);
+		return nthString(random(rand,0,num-1),list);
 	}
 	
 	public String get(String imp, double chance,String end) throws FileNotFoundException{

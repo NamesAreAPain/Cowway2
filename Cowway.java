@@ -40,6 +40,7 @@ public class Cowway{
 		csi.print(0,2, "Home to the " + Phrase.ADJECTIVE.get() + " Farms of ", CSIColor.WHITE);
 		
 		FarmWindows[] windows = new FarmWindows[theWorld.getFarms().length];
+		
 		for(int i = 0; i < theWorld.getFarms().length; i++){
 			csi.print(3,3+i, theWorld.getFarms()[i].getName() + farmInfo(theWorld.getFarms()[i]) ,CSIColor.WHITE);
 			windows[i] = new FarmWindows(theWorld.getFarms()[i]);
