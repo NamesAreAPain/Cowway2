@@ -4,6 +4,10 @@ public class Cow extends FarmTile {
 	private int hunger;
 	private int age;
 	private int sicknessLevel;
+
+	public Cow() {
+		this.name = Phrase.NAME.get() + "the Cow";
+	}
 	
 	public void doStuffForAnHour(int hour) throws FileNotFoundException {
 		increaseThings();
@@ -25,12 +29,17 @@ public class Cow extends FarmTile {
 				direct1 = WEST;
 			}
 			if (direct1.go(loc).getThing().getType().equals("Grass")) {
-				direct1.go(loc).getThing().returnAmount();
+				this.hunger -= direct1.go(loc).getThing().returnAmount();
+				this.sicknessLevel += direct1.go(loc).getThing().returnSickness();
+				moveThing(this, direct1);
+			} else {
+				moveThing(this, direct1);
 			}
 		}
 	}
 
 	public void increaseThings() {
+		//increases things every hour
 		this.hunger += 2;
 		this.age++;
 	}
@@ -40,6 +49,6 @@ public class Cow extends FarmTile {
 	}
 
 	public int returnAmount() {
-		return -1;
+		return amount;
 	}
 }
