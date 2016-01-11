@@ -1,3 +1,7 @@
+import java.util.Scanner; 
+import java.util.*; 
+import java.io.*;
+
 public class Grass extends FarmTile {
 	
 	private String name;
