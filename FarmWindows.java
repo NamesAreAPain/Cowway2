@@ -32,7 +32,8 @@ public class FarmWindows{
 			eiie.printStackTrace();
 			System.exit(-1);
 		}
-		csi.print(0,0, farm.getName(), CSIColor.WHITE);
+		this.csi.print(0,0, farm.getName(), CSIColor.WHITE);
+		this.csi.refresh();
 		
 		
 		
