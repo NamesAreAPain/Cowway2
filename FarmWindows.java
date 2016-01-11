@@ -31,9 +31,9 @@ public class FarmWindows{
 			System.exit(-1);
 		}
 		csi.print(0,0, farm.getName(), CSIColor.WHITE);
-		
+		int tempTime = -1;
 		while(true){
-			
+			if(tempTime != )
 		}
 		
 	}

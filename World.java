@@ -18,7 +18,7 @@ public class World{
 		this.maxSize = maxSizei;
 		for(int i = 0; i < qfarms;i++){
 			int[] dims = { random(rand,minSize, maxSize), random(rand,minSize, maxSize)};
-			farms[i] = new Farm(dims);
+			farms[i] = new Farm(dims,this);
 		}
 		this.name = "The " + Phrase.ADJECTIVE.get() + " " + Phrase.NOUN.get() + " of " + Phrase.ADJECTIVE.get() + " " + Phrase.NOUN.get();
 	}

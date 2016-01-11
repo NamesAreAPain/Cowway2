@@ -8,11 +8,13 @@ public class Farm{
 	private ArrayList<FarmTile> tilelist;
 	private int[] dimensions;
 	private String name;
+	private World world;
 	
-	public Farm(int[]size) throws FileNotFoundException{
+	public Farm(int[]size,World world) throws FileNotFoundException{
 		this.farmmap = new FarmTile[size[0]][size[1]];
 		Arrays.fill(farmmap, null);
 		this.name = "The " + Phrase.ADJECTIVE.get() + " " + Phrase.LETTER.get() + " " + Phrase.NOUN.get(); 
+		this.world = world;
 	}
 	
 	public String getName(){
