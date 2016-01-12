@@ -20,21 +20,8 @@ public class NocturnalCow extends Cow {
 		increaseThings();
 		Random rand = new Random();
 		if (hour < 6 || hour > 18) {
-			int direct = random(rand, 1, 4);
-			Dir direct1 = null;
-			switch(direct) {
-				case 2: direct1 = Dir.EAST;//cow go east
-				case 3: direct1 = Dir.SOUTH;//cow go south
-				case 4: direct1 = Dir. WEST;//cow go west
-				case 1:
-				default: direct1 = Dir.NORTH;//cow go north
-			}
 
-			if (farm.getThing(direct1.go(getLoc())).getTType().equals(Tile.GRASS)) {//if the tile the cow is going to is grass
-				this.hunger -= farm.getThing(direct1.go(getLoc())).returnAmount();//absorb the hunger
-				this.sicknessLevel += farm.getThing(direct1.go(getLoc())).getSickness();//gain the sickness
-			}
-			farm.moveThing(this, direct1);
+			moveCow();
 
 			int randInt = random(rand, 1, 100);
 			int sick = (int) (0.000001*getAge()*getSickness());

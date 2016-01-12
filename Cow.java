@@ -25,7 +25,20 @@ public class Cow extends FarmTile {
 		increaseThings();
 		Random rand = new Random();
 		if (hour < 19 || hour > 5) {
-			int direct = random(rand, 1, 4);
+
+			moveCow();
+
+			int randInt = random(rand, 1, 100);
+			int sick = (int) (0.000001*age*sicknessLevel);
+			if (hunger == 100 || age == 90001 || sick > randInt) {//check for death
+				rapture();
+			}
+		}
+	}
+
+	public void moveCow() {
+		Random rand = new Random();
+		int direct = random(rand, 1, 4);
 			Dir direct1 = null;
 			switch(direct) {//chooses the direction based off of a random number
 				case 2: direct1 = Dir.EAST;
@@ -34,19 +47,11 @@ public class Cow extends FarmTile {
 				case 1:
 				default: direct1 = Dir.NORTH;
 			}
-
-			if (getTileType(farm.getThing(direct1.go(getLoc()))).equals(Tile.GRASS)) {//if the tile the cow moves to is grass
-				this.hunger -= farm.getThing(direct1.go(getLoc())).returnAmount();
-				this.sicknessLevel += farm.getThing(direct1.go(getLoc())).getSickness();
-			}
-			farm.moveThing(this, direct1);//move the cow
-
-			int randInt = random(rand, 1, 100);
-			int sick = (int) (0.000001*age*sicknessLevel);
-			if (hunger == 100 || age == 90001 || sick > randInt) {//check for death
-				rapture();
-			}
+		if (getTileType(farm.getThing(direct1.go(getLoc()))).equals(Tile.GRASS)) {//if the tile the cow moves to is grass
+			this.hunger -= farm.getThing(direct1.go(getLoc())).returnAmount();
+			this.sicknessLevel += farm.getThing(direct1.go(getLoc())).getSickness();
 		}
+		farm.moveThing(this, direct1);//move the cow
 	}
 	//returning variables
 	public int getSickness() {
