@@ -66,7 +66,7 @@ public class Cowway { //This is an incredibly complex project, simulating a worl
 		//main operation loop
 		while(true){
 			try {
-				Thread.sleep(100);                 //waits .1 second
+				Thread.sleep(10);                 //waits .1 second
 			} catch(InterruptedException ex) {
 				Thread.currentThread().interrupt();
 			}
