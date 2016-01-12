@@ -39,9 +39,14 @@ public class FarmWindows{
 		
 		
 		
+		
 	}
 	
 	public void updateWindow(){ //the meat of the class. Paints the array
+				this.csi.print(15,1, farm.getWorld().getCalendar()[0], CSIColor.WHITE);
+				
+				
+				
 				for(int i = 0; i < farm.getDimensions()[1];i++){
 					for(int j = 0; j < farm.getDimensions()[0];j++){
 						

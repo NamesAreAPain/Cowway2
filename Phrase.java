@@ -11,6 +11,7 @@ public enum Phrase { //allows for the easy generation of names
 	NOUN ("WordList\\nouns.txt"),
 	ADVERB ("WordList\\adverbs.txt"),
 	VERB ("WordList\\verbs.txt"),
+	INGVERB ("WordList\\ingverbs.txt"),
 	MALENAME ("WordList\\namesMale.txt"),
 	FEMALENAME ("WordList\\namesFemale.txt"),
 	NAME ("WordList\\names.txt"),
