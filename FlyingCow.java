@@ -9,7 +9,7 @@ public class FlyingCow extends Cow {
 	public FlyingCow(Farm farm, Tile ttype) {//constructor with same arguments as super
 		super(farm, ttype);
 		try {
-			this.name = Phrase.TITLE.get() + Phrase.NAME.get() + "the " + Phrase.ADJECTIVE.get() + " Flying Cow";//Proper nameology
+			this.name = Phrase.TITLE.get() + " " + Phrase.NAME.get() + " the " + Phrase.ADJECTIVE.get() + " Flying Cow";//Proper nameology
 		} catch(FileNotFoundException e) {}
 		this.ttype = Tile.FLYINGCOW;
 	}
