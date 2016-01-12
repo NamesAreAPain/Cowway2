@@ -21,7 +21,6 @@ public class World{ // Generates An array of farms, and holds time data
 		this.maxSize = maxSizei;
 		for(int i = 0; i < qfarms;i++){ //generates the farms
 			int[] dims = { random(rand,minSize, maxSize), random(rand,minSize, maxSize)};
-			System.out.println(Arrays.toString(dims));
 			farms[i] = new Farm(dims,this);
 		}
 		this.name = "The " + Phrase.ADJECTIVE.get() + " " + Phrase.NOUN.get() + " of " + Phrase.ADJECTIVE.get() + " " + Phrase.NOUN.get(); 

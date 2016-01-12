@@ -6,6 +6,7 @@ public class NocturnalCow extends Cow {
 
 	public NocturnalCow(Farm farm, Tile ttype) {//constructor with same arguments as super
 		super(farm, ttype);
+		this.farm = farm;
 		try {
 			this.name = Phrase.ADJECTIVE.get() + Phrase.NAME.get() + "the Nocturnal Cow";
 		} catch(FileNotFoundException e) {}

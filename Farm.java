@@ -14,10 +14,7 @@ public class Farm{ //farm has an array of FarmTiles
 	public Farm(int[]size,World world) throws FileNotFoundException{
 		this.farmmap = new FarmTile[size[0]][size[1]]; //founds the farm
 		this.name = "The " + Phrase.ADJECTIVE.get() + " " + Phrase.LETTER.get() + " " + Phrase.NOUN.get(); //names the farm using Phrase
-		this.dimensions = size; //sets dimensions;
-		
-		//bughunting
-		System.out.println(Arrays.toString(dimensions));
+		this.dimensions = size; //sets dimensions
 		
 		this.tilelist = new ArrayList<FarmTile>(); //starts the list
 		for(int i = 0; i < dimensions[0]; i++){ //all tiles 
@@ -101,11 +98,18 @@ public class Farm{ //farm has an array of FarmTiles
 	}
 	
 	public FarmTile getThing(int y,int x){ //gets a thing at a location
-		return farmmap[y][x];
+		int[] loc = {y,x};
+		return getThing(loc);
 	}
 	
 	public FarmTile getThing(int[] loc){ //gets a thing at a location (with an array input)
-		return farmmap[loc[0]][loc[1]];
+		try {
+			return farmmap[loc[0]][loc[1]];
+		} catch (ArrayIndexOutOfBoundsException e){
+			return null;
+		} catch ( NullPointerException f){
+			return null;
+		}
 	}
 	
 	public int[] getLocation(FarmTile thing){ //HARDERST PART OF ENTIRE PROJECT, HANDS DOWN. IMPOSSIBLE TO DO WELL, HARD TO DO AT ALL.
@@ -124,28 +128,45 @@ public class Farm{ //farm has an array of FarmTiles
 	}
 	
 	public void setThing(FarmTile thing, int y, int x){ //sets the location to the thing
-		farmmap[y][x] = thing;
+		int[] loc = {y,x};
+		this.setThing(thing,loc);
 	}
 	
 	public void setThing(FarmTile thing, int[] loc){ //see above
-		farmmap[loc[0]][loc[1]] = thing;
+		try{
+			farmmap[loc[0]][loc[1]] = thing;
+		} catch (ArrayIndexOutOfBoundsException e){
+			
+		} catch (NullPointerException f){
+			
+		}
 	}
 	
 	
 	public boolean isOpenTile(int y, int x){ //is the tile available to be moved to by a cow?
-		if( (y < dimensions[0]-1) && (x < dimensions[1]-1) && (getThing(y,x).getTType() == Tile.GRASS || getThing(y,x).getTType() == Tile.DIRT || getThing(y,x).getTType() == Tile.POISONGRASS) ){
-			return true;
-		}
-		return false;
+		int[] loc = {y,x};
+		return (isOpenTile(loc));
 	}
 	
 	public boolean isOpenTile(int[] loc){ //same thing
-		if( (loc[0] < dimensions[0]-1) && (loc[1] < dimensions[1]-1) && (getThing(loc).getTType() == Tile.GRASS || getThing(loc).getTType() == Tile.DIRT || getThing(loc).getTType() == Tile.POISONGRASS) ){
+		
+		try {
+			if( (loc[0] > this.dimensions[0]-1 || loc[1] > this.dimensions[1]-1) || ((loc[0] < 0 || (loc[1] < 0) )) || (getThing(loc).getTType() != Tile.GRASS && getThing(loc).getTType() != Tile.DIRT && getThing(loc).getTType() != Tile.POISONGRASS) ){
+				return false;
+			}
 			return true;
+		} catch (NullPointerException f){
+			return true;
+		} catch (ArrayIndexOutOfBoundsException g){
+			return false;
 		}
-		return false;
 	}
 	
+	
+	public Tile getTileTypeAt(int[] loc){
+		if(getThing(loc) == null) return Tile.DIRT;
+		return getThing(loc).getTType();
+	}
 	
 	public boolean moveThing(FarmTile thing, Dir direction){ //moves the thing in a cardinal direction
 		int[] loc0 = getLocation(thing);
@@ -166,8 +187,16 @@ public class Farm{ //farm has an array of FarmTiles
 	}
 	
 	public void rapture(FarmTile thing){ //removes thing, replacing ground with dirt;
-		setThing(new Dirt(this,Tile.DIRT), this.getLocation(thing));
-		tilelist.remove(thing);
+		try {
+			setThing(new Dirt(this,Tile.DIRT), this.getLocation(thing));
+		} catch (ArrayIndexOutOfBoundsException e){
+			
+		} catch (NullPointerException f){
+			
+		} catch (ConcurrentModificationException g){
+			setThing(new Dirt(this,Tile.DIRT), this.getLocation(thing));
+		}
+		
 	}
 	
 	public int random(Random rand,int num1,int num2){  //returns a random value between num1 and num2 (inclusive)
