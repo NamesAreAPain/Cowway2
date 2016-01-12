@@ -39,8 +39,12 @@ public class Cowway { //This is an incredibly complex project, simulating a worl
 		waitForEnter(csi);
 		
 		//prints opening credits
-		csi.print(0,1, "A " + Phrase.ADJECTIVE.get() + " land, guided  by Adam and (somewhat) Jamie",CSIColor.CYAN);
+		try {
+		csi.print(0,1, "A " + Phrase.ADJECTIVE.get() + " land, guided  by " + Phrase.ADJECTIVE.get("the ",0.5," ") +"Adam, and " + Phrase.ADJECTIVE.get("the ",0.5," ") + "Jamie",CSIColor.CYAN);
 		csi.refresh();
+		} catch (ArrayIndexOutOfBoundsException n){
+			csi.print(0,1, "By Jamie and Adam",CSIColor.BLUE);
+		}
 		
 		//waits fir an enter
 		waitForEnter(csi);
