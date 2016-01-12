@@ -36,7 +36,7 @@ public class Grass extends FarmTile {
 			default: direct = Dir.NORTH; break;
 		}
 
-		int spreads = (int) (100*this.amount);
+		int spreads = (int) (1000*this.amount);
 		int checks = random(rand, 1, 100);
 		if (spreads > checks) {
 			if (getTileType(farm.getThing(direct.go(getLoc()))).equals(Tile.DIRT)) {
