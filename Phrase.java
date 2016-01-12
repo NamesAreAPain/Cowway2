@@ -49,11 +49,15 @@ public enum Phrase { //allows for the easy generation of names
 	
 	
 	public String nthString(int n, File f) throws FileNotFoundException{ //gets the nth String in a file
-		Scanner console = new Scanner(f);
+		try{
+			Scanner console = new Scanner(f);
 		for(int i = 0; i < n; i++ ){
 			console.next();
 		}
 		return console.next();
+		} catch (NoSuchElementException g){
+			return "ERROR";
+		}
 	}
 	
 	public int wordCount(File f) throws FileNotFoundException{ //how many words?
