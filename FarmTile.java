@@ -22,10 +22,6 @@ public class FarmTile {
 		return(num1 -1 + (int)Math.ceil(rand.nextDouble()*(num2-num1+1)));
 	}
 
-	public String getName() {
-		
-	}
-
 	public int[] getLoc() {
 		this.loc = farm.getLocation(this);
 		return loc;

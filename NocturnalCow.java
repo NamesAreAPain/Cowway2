@@ -8,7 +8,7 @@ public class NocturnalCow extends Cow {
 		super(farm, ttype);
 		this.farm = farm;
 		try {
-			this.name = Phrase.TITLE.get() + " " + Phrase.NAME.get() + " the " + Phrase.ADJECTIVE.get() + " Nocturnal Cow";//Proper nameology
+			this.name = Phrase.TITLE.get() + Phrase.NAME.get() + "the " + Phrase.ADJECTIVE.get() + " Nocturnal Cow";//Proper nameology
 		} catch(FileNotFoundException e) {}
 		this.ttype = Tile.NOCTURNALCOW;
 	}
@@ -28,7 +28,7 @@ public class NocturnalCow extends Cow {
 			int sick = (int) (0.000001*this.age*this.sicknessLevel);
 			if (this.hunger >= 100 || this.age >= 90001 || sick > randInt) {//check for death
 				rapture();
-				printDeath();
+				System.out.println("hahaha");
 			}
 		}
 	}	
