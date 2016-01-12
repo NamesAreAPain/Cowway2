@@ -88,13 +88,13 @@ public class Cowway { //This is an incredibly complex project, simulating a worl
 		
 	}
 	
-	public static String farmInfo(Farm farm){ //gets how many cows, or anything else we care to add.
+	public String farmInfo(Farm farm){ //gets how many cows, or anything else we care to add.
 		String out = "(Home to " + farm.howManyCows() + " Cows)";
 		return out;
 	}
 	
 	
-	public static void waitForEnter(ConsoleSystemInterface csi){ //easy wait for enter loop
+	public void waitForEnter(ConsoleSystemInterface csi){ //easy wait for enter loop
 		CharKey Kimp = null;
 		do {
 			Kimp = csi.inkey();
