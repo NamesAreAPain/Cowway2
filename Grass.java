@@ -45,6 +45,10 @@ public class Grass extends FarmTile {
 		}
 	}
 
+	public getName() {
+		return this.name;
+	}
+
 	public Tile getTileType(FarmTile aa){
 		if( aa == null) return Tile.DIRT;
 		return aa.getTType();
