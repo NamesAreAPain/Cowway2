@@ -9,7 +9,7 @@ public class FlyingCow extends Cow {
 	public FlyingCow(Farm farm, Tile ttype) {//constructor with same arguments as super
 		super(farm, ttype);
 		try {
-			this.name = Phrase.ADJECTIVE.get() + Phrase.NAME.get() + "the Flying Cow";
+			this.name = Phrase.TITLE.get() + Phrase.NAME.get() + "the " + Phrase.ADJECTIVE.get() + " Flying Cow";//Proper nameology
 		} catch(FileNotFoundException e) {}
 		this.ttype = Tile.FLYINGCOW;
 	}
@@ -32,8 +32,9 @@ public class FlyingCow extends Cow {
 
 		int randInt = random(rand, 1, 100);
 		int sick = (int) (0.000001*this.age*this.sicknessLevel);
-		if (this.hunger == 100 || this.age == 90001 || sick > randInt) {//check for death
+		if (this.hunger >= 100 || this.age >= 90001 || sick > randInt) {//check for death
 			rapture();
+			System.out.println("hahaha");
 		}
 	}
 }
