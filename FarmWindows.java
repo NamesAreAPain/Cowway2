@@ -48,7 +48,7 @@ public class FarmWindows{
 					if(farm.getWorld().whatTimeIsIt()/24/28 % 12 == i - 1){
 						this.csi.print(16,3+i, farm.getWorld().getCalendar()[i], CSIColor.RED);
 					} else {
-						this.csi.print(16,1+i, farm.getWorld().getCalendar()[i], CSIColor.WHITE);
+						this.csi.print(16,3+i, farm.getWorld().getCalendar()[i], CSIColor.WHITE);
 					}
 					this.csi.print(15,2, "" + farm.getWorld().whatTimeOfDay(), CSIColor.WHITE);
 				}
