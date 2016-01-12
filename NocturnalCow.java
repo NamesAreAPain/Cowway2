@@ -30,7 +30,6 @@ public class NocturnalCow extends Cow {
 				default: direct1 = Dir.NORTH;//cow go north
 			}
 			
-			System.out.println(direct1.go(this.getLoc())); 
 			if(farm.isOpenTile(direct1.go(this.getLoc()))){
 				if (farm.getTileTypeAt(direct1.go(this.getLoc())) == Tile.GRASS) {
 					this.hunger -= farm.getThing(direct1.go(getLoc())).returnAmount();

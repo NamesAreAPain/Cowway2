@@ -150,13 +150,16 @@ public class Farm{ //farm has an array of FarmTiles
 	
 	public boolean isOpenTile(int[] loc){ //same thing
 		
-		System.out.println(Arrays.toString(loc) + Arrays.toString(this.dimensions));
-		
-		if( (loc[0] > this.dimensions[0]-1 || loc[1] > this.dimensions[1]-1) || ((loc[0] < 0 || (loc[1] < 0) )) || (getThing(loc).getTType() != Tile.GRASS && getThing(loc).getTType() != Tile.DIRT && getThing(loc).getTType() != Tile.POISONGRASS) ){
+		try {
+			if( (loc[0] > this.dimensions[0]-1 || loc[1] > this.dimensions[1]-1) || ((loc[0] < 0 || (loc[1] < 0) )) || (getThing(loc).getTType() != Tile.GRASS && getThing(loc).getTType() != Tile.DIRT && getThing(loc).getTType() != Tile.POISONGRASS) ){
+				return false;
+			}
+			return true;
+		} catch (NullPointerException f){
+			return true;
+		} catch (ArrayIndexOutOfBoundsException g){
 			return false;
 		}
-		
-		return true;
 	}
 	
 	
@@ -186,11 +189,12 @@ public class Farm{ //farm has an array of FarmTiles
 	public void rapture(FarmTile thing){ //removes thing, replacing ground with dirt;
 		try {
 			setThing(new Dirt(this,Tile.DIRT), this.getLocation(thing));
-			tilelist.remove(thing);
 		} catch (ArrayIndexOutOfBoundsException e){
 			
 		} catch (NullPointerException f){
 			
+		} catch (ConcurrentModificationException g){
+			setThing(new Dirt(this,Tile.DIRT), this.getLocation(thing));
 		}
 		
 	}

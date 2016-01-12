@@ -36,15 +36,6 @@ public class Cow extends FarmTile {
 				default: direct1 = Dir.NORTH;
 			}
 			
-			int[] hurdur = {2,2};
-			
-			System.out.println(farm.getTileTypeAt(hurdur));
-			
-			//never gets to execute farm.getTileTypeAt()
-			//This line is currently broken. it's not the location
-			//its not direct1.go()
-			//getTileTypeAt is returning null;
-			
 			
 			
 			if(farm.isOpenTile(direct1.go(this.getLoc()))){
