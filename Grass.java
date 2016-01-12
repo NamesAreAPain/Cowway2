@@ -40,6 +40,7 @@ public class Grass extends FarmTile {
 		int checks = random(rand, 1, 100);
 		if (spreads > checks) {
 			if (getTileType(farm.getThing(direct.go(getLoc()))).equals(Tile.DIRT)) {
+				System.out.println("   s");
 				farm.setThing(new Grass(farm,Tile.GRASS), direct.go(getLoc()));	
 			}
 		}
