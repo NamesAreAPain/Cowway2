@@ -13,7 +13,7 @@ public class Cow extends FarmTile {
 		super(farm, ttype);
 		this.farm = farm;
 		try{
-			this.name = Phrase.TITLE.get() + " " + Phrase.NAME.get() + " the " + Phrase.ADJECTIVE.get() + " Cow";//Proper nameology
+			this.name = Phrase.TITLE.get() + Phrase.NAME.get() + "the " + Phrase.ADJECTIVE.get() + " Cow";//Proper nameology
 		} catch(FileNotFoundException e) {}
 		this.ttype = Tile.COW;
 	}
@@ -33,7 +33,6 @@ public class Cow extends FarmTile {
 			int sick = (int) (0.000001*this.age*this.sicknessLevel);
 			if (this.hunger >= 100 || this.age >= 90001 || sick > randInt) {//check for death
 				rapture();
-				printDeath();
 			}
 		}
 	}
@@ -55,19 +54,15 @@ public class Cow extends FarmTile {
 			if (farm.getTileTypeAt(direct1.go(this.getLoc())) == Tile.GRASS) {
 				this.hunger -= farm.getThing(direct1.go(getLoc())).returnAmount();
 				this.sicknessLevel += farm.getThing(direct1.go(getLoc())).getSickness();
-				System.out.println(this.name + " has eaten " + farm.getThing(direct1.go(getLoc())).getName() + ".");
-			}
+				farm.moveThing(this, direct1);
+			} else {
 			farm.moveThing(this, direct1);
+			}
 		}
 	}
 	//returning variables
 	public int getSickness() {
 		return sicknessLevel;
-	}
-
-	public void printDeath() {
-		String cowName = this.name;
-		System.out.println(cowName + "has died.");
 	}
 
 	public int getAge() {
