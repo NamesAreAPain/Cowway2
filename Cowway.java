@@ -10,7 +10,10 @@ import java.io.*;
 
 public class Cowway { //This is an incredibly complex project, simulating a world of bovine farms. This is the driver class
 	
+	public Record record;
+	
 	public static void main(String[] args) throws FileNotFoundException {
+		record = new Record();
 		//making the opening window
 		
 		//setting the properties
