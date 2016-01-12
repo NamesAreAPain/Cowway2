@@ -29,21 +29,21 @@ public class Grass extends FarmTile {
 		Dir direct = null;
 		int spread = random(rand, 1, 4);
 		switch(spread) {
-			case 2: direct = Dir.EAST;
-			case 3: direct = Dir.SOUTH;
-			case 4: direct = Dir.WEST;
+			case 2: direct = Dir.EAST; break;
+			case 3: direct = Dir.SOUTH; break;
+			case 4: direct = Dir.WEST; break;
 			case 1: 
-			default: direct = Dir.NORTH;
+			default: direct = Dir.NORTH; break;
 		}
 
-		int spreads = (int) (0.001*amount);
+		int spreads = (int) (100*amount);
 		int checks = random(rand, 1, 100);
 		if (spreads > checks) {
 			if (getTileType(farm.getThing(direct.go(getLoc()))).equals(Tile.DIRT)) {
 				try {
 					farm.setThing(new Grass(farm,Tile.GRASS), direct.go(getLoc()));
 				} catch (NullPointerException e) {
-
+					
 				}
 			}
 		}

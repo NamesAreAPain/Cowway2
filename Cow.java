@@ -43,11 +43,11 @@ public class Cow extends FarmTile {
 		Dir direct1 = null;
 
 		switch(direct) {//chooses the direction based off of a random number
-			case 2: direct1 = Dir.EAST;
-			case 3: direct1 = Dir.SOUTH;
-			case 4: direct1 = Dir.WEST;
+			case 2: direct1 = Dir.EAST; break;
+			case 3: direct1 = Dir.SOUTH; break;
+			case 4: direct1 = Dir.WEST; break;
 			case 1:
-			default: direct1 = Dir.NORTH;
+			default: direct1 = Dir.NORTH; break;
 		}
 	
 		if(farm.isOpenTile(direct1.go(this.getLoc()))){
