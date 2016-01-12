@@ -10,9 +10,9 @@ import java.io.*;
 
 public class Cowway { //This is an incredibly complex project, simulating a world of bovine farms. This is the driver class
 	
-	public Record record;
+	public static Record record;
 	
-	public void main(String[] args) throws FileNotFoundException {
+	public static void main(String[] args) throws FileNotFoundException {
 		record = new Record();
 		//making the opening window
 		
@@ -88,13 +88,13 @@ public class Cowway { //This is an incredibly complex project, simulating a worl
 		
 	}
 	
-	public String farmInfo(Farm farm){ //gets how many cows, or anything else we care to add.
+	public static String farmInfo(Farm farm){ //gets how many cows, or anything else we care to add.
 		String out = "(Home to " + farm.howManyCows() + " Cows)";
 		return out;
 	}
 	
 	
-	public void waitForEnter(ConsoleSystemInterface csi){ //easy wait for enter loop
+	public static void waitForEnter(ConsoleSystemInterface csi){ //easy wait for enter loop
 		CharKey Kimp = null;
 		do {
 			Kimp = csi.inkey();
