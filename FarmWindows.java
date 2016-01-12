@@ -45,12 +45,12 @@ public class FarmWindows{
 	public void updateWindow(){ //the meat of the class. Paints the array
 				this.csi.print(15,1, farm.getWorld().getCalendar()[0], CSIColor.WHITE);
 				for(int i = 1; i < farm.getWorld().getCalendar().length; i ++){
-					if(farm.getWorld().whatTimeIsIt()/24/28 % 12 = i - 1){
+					if(farm.getWorld().whatTimeIsIt()/24/28 % 12 == i - 1){
 						this.csi.print(16,3+i, farm.getWorld().getCalendar()[i], CSIColor.RED);
 					} else {
 						this.csi.print(16,1+i, farm.getWorld().getCalendar()[i], CSIColor.WHITE);
 					}
-					this.csi.print(15,2, farm.getWorld().whatTimeOfDay(), CSIColor.WHITE);
+					this.csi.print(15,2, "" + farm.getWorld().whatTimeOfDay(), CSIColor.WHITE);
 				}
 				this.csi.refresh();
 				

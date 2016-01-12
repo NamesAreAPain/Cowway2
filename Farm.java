@@ -50,11 +50,11 @@ public class Farm{ //farm has an array of FarmTiles
 		Random rand = new Random();
 		int i = random(rand,1,15);
 		switch(i){
-			case 1 :
-			case 2 :
 			case 3 : return(new Cow(this,Tile.COW));
 			case 4 : return(new FlyingCow(this,Tile.FLYINGCOW));
 			case 5 : return(new NocturnalCow(this,Tile.NOCTURNALCOW));
+			case 1 :
+			case 2 :
 			case 6 :
 			case 7 :
 			case 8 :

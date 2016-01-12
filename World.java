@@ -27,9 +27,9 @@ public class World{ // Generates An array of farms, and holds time data
 		this.name = "The " + Phrase.ADJECTIVE.get() + " " + Phrase.NOUN.get() + " of " + Phrase.ADJECTIVE.get() + " " + Phrase.NOUN.get(); 
 		this.Calendar = new String[13];
 		
-		this.Calendar[0] = "Year 0"
+		this.Calendar[0] = "Year 0";
 		for(int i = 1; i < 13; i++){
-			Calendar[i] = "The Month of " + Phrase.INGVERB.get() 
+			Calendar[i] = "The Month of " + Phrase.INGVERB.get() ;
 		}
 		//makes the name using the custom enum type Phrase
 	}
