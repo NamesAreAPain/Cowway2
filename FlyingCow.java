@@ -29,5 +29,11 @@ public class FlyingCow extends Cow {
 			this.sicknessLevel += farm.getThing(loc1).getSickness();
 		}
 		farm.moveThing(this, loc1);
+
+		int randInt = random(rand, 1, 100);
+		int sick = (int) (0.000001*this.age*this.sicknessLevel);
+		if (this.hunger == 100 || this.age == 90001 || sick > randInt) {//check for death
+			rapture();
+		}
 	}
 }

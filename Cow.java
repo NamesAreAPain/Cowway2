@@ -30,8 +30,8 @@ public class Cow extends FarmTile {
 			moveCow();
 
 			int randInt = random(rand, 1, 100);
-			int sick = (int) (0.000001*age*sicknessLevel);
-			if (hunger == 100 || age == 90001 || sick > randInt) {//check for death
+			int sick = (int) (0.000001*this.age*this.sicknessLevel);
+			if (this.hunger == 100 || this.age == 90001 || sick > randInt) {//check for death
 				rapture();
 			}
 		}
