@@ -47,7 +47,7 @@ public class World{ // Generates An array of farms, and holds time data
 	public void timeTick(){ //ticks the world
 		time++;
 		timeOfDay = time % 24;
-		this.Calendar[0] = "Year " + time/24/365;
+		this.Calendar[0] = "Year " + time/24/336;
 		for(Farm x: farms){ //ticks each farm
 			x.tick();
 		}
