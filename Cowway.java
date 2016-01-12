@@ -24,7 +24,7 @@ public class Cowway { //This is an incredibly complex project, simulating a worl
 		//makes the window
 		ConsoleSystemInterface csi = null;
 		try{
-				csi = new WSwingConsoleInterface("My little Java Roguelike - Programming is fun", text);
+				csi = new WSwingConsoleInterface("Cows. Most Remarkable Cows. And Wherever we go. It's a Marvelous show. Cuz You Know We are Cows", text);
 		}
 		catch (ExceptionInInitializerError eiie) {
 			System.out.println("*** Error: Swing Console Box cannot be initialized. Exiting...");

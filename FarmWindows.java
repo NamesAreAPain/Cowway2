@@ -27,7 +27,7 @@ public class FarmWindows{
 		ConsoleSystemInterface csi = null;
 		
 		try{
-			this.csi = new WSwingConsoleInterface("My little Java Roguelike - Programming is fun", text);
+			this.csi = new WSwingConsoleInterface(farm.getName(), text);
 		}
 		catch (ExceptionInInitializerError eiie) {
 			System.out.println("*** Error: Swing Console Box cannot be initialized. Exiting...");
