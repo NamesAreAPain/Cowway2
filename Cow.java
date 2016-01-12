@@ -34,7 +34,7 @@ public class Cow extends FarmTile {
 			if (this.hunger >= 100 || this.age >= 90001 || sick > randInt) {//check for death
 				rapture();
 				try {
-					Cowway.record.addRecord(this.name + " has died" + Phrase.ADVERB.get(" a ", 0.5, " death" + "."));
+					Cowway.record.addRecord(this.name + " has died" + Phrase.ADVERB.get(" ", 0.5, "" + "."));
 				} catch(FileNotFoundException z) {}
 			}
 		}
