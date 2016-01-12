@@ -39,6 +39,7 @@ public class Grass extends FarmTile {
 		int spreads = (int) (1000*this.amount);
 		int checks = random(rand, 1, 100);
 		if (spreads > checks) {
+			System.out.println("why");
 			if (getTileType(farm.getThing(direct.go(getLoc()))).equals(Tile.DIRT)) {
 				farm.setThing(new Grass(farm,Tile.GRASS), direct.go(getLoc()));	
 			}
@@ -50,7 +51,7 @@ public class Grass extends FarmTile {
 		return aa.getTType();
 	}
 
-	public void doStuffEveryHour(int hour) {
+	public void doStuffForAnHour(int hour) {
 		increaseThings();
 		spreadGrass();
 	}

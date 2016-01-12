@@ -13,7 +13,7 @@ public class FarmTile {
 	
 	public FarmTile(Farm farm, Tile ttype) {
 		this.farm = farm;
-		this.amount = -1;
+		this.amount = 1;
 		this.ttype = Tile.DIRT;
 		this.loc = farm.getLocation(this);
 	}
