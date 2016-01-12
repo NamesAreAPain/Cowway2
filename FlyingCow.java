@@ -34,6 +34,7 @@ public class FlyingCow extends Cow {
 		int sick = (int) (0.000001*this.age*this.sicknessLevel);
 		if (this.hunger >= 100 || this.age >= 90001 || sick > randInt) {//check for death
 			rapture();
+			Cowway.record.addRecord(this.name + " has died" + Phrase.ADVERB.get(" a ", 0.5, " death" + ".");
 		}
 	}
 }
