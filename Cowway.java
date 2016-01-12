@@ -12,7 +12,7 @@ public class Cowway { //This is an incredibly complex project, simulating a worl
 	
 	public Record record;
 	
-	public static void main(String[] args) throws FileNotFoundException {
+	public void main(String[] args) throws FileNotFoundException {
 		record = new Record();
 		//making the opening window
 		
