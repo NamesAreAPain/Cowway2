@@ -1,0 +1,43 @@
+How to run Cowway
+-To compile all files, run CompileAll.bat or in the command line run javac -cp libjcsi.jar;. *.java
+-To run the program, in the command line run java -cp libjcsi.jar;. Cowway
+
+Adjusting variables
+(? is any number to be put in)
+-To change the size of the fonts for the screens
+	-Cowway:line 21  text.setProperty("fontSize","?");
+	-FarmWindows: line 25  text.setProperty("fontSize","?");
+-To change the number of farms that get created or the farm size(? = numOfFarms, min = minimumSizeOfFarms, max = maximumSizeOfFarms)
+	-World theWorld = new World(?,min,max);
+-To change the % of certain tiles showing up
+	-change where certain tile is created
+	-switch will follow cases down until a return statement is found so GRASS gets created the most currently
+
+Farm: lines 49-70
+public FarmTile aTile(){ //chooses a random tile
+		Random rand = new Random();
+		int i = random(rand,1,15);
+		switch(i){
+			case 3 : return(new Cow(this,Tile.COW));
+			case 4 : return(new FlyingCow(this,Tile.FLYINGCOW));
+			case 5 : return(new NocturnalCow(this,Tile.NOCTURNALCOW));
+			case 1 :
+			case 2 :
+			case 6 :
+			case 7 :
+			case 8 :
+			case 11:
+			case 12:
+			case 13:
+			case 14:
+			case 15:
+			case 9 : return(new Grass(this,Tile.GRASS));
+			case 10: return(new PoisonGrass(this,Tile.POISONGRASS));
+		} 
+		return(new Dirt(this,Tile.DIRT));
+	}
+
+Extra Notes
+-The larger the farmSize is the longer it will take to run through each tick
+-The more farms there are the longer it will take to run through each tick
+-you can add whatever you want in the word lists and also change the names use Phrase.(PhraseCONSTANT).get()
